@@ -1,93 +1,159 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Perfil Musical</title>
-  <link rel="stylesheet" href="main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Musical - André Luiz</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="perfil">
-    <img class="foto-perfil" src="https://i.imgur.com/OuTpLhR.png" alt="Perfil">
-    <div>
-      <h1>Wagner Alves</h1>
-      <p>Amante de música sempre à procura de novos gêneros.</p>
-    </div>
-  </header>
-
-  <section class="estatisticas">
-    <div class="item">
-      <strong>9.328</strong>
-      <p>Músicas ouvidas</p>
-    </div>
-    <div class="item">
-      <strong>Rock</strong>
-      <p>Gênero favorito</p>
-    </div>
-    <div class="item">
-      <strong>10.728</strong>
-      <p>Minutos neste mês</p>
-    </div>
-    <div class="item item-grafico">
-      <strong>Atividade da semana</strong>
-      <div class="barras">
-        <div style="height: 30%"></div>
-        <div style="height: 60%"></div>
-        <div style="height: 80%"></div>
-        <div style="height: 60%"></div>
-        <div style="height: 40%"></div>
-        <div style="height: 70%"></div>
-        <div style="height: 50%"></div>
-      </div>
-      <div class="dias">
-        <span>S</span><span>T</span><span>Q</span><span>Q</span><span>S</span><span>S</span><span>D</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="historico">
-    <h2>Histórico de reprodução</h2>
-    <ul>
-      <li>
-        <img src="https://i.imgur.com/GozAMpH.jpg" alt="Sapo Africano">
-        <div>
-          <strong>Sapo Africano</strong>
-          <p>Mais uma vez</p>
+    <!-- Cabeçalho com edição -->
+    <header class="cabecalho-perfil">
+        <div class="foto-capa">
+            <img src="https://via.placeholder.com/1600x400" alt="Capa do Perfil" class="imagem-capa">
+            <div class="sobreposicao-capa"></div>
         </div>
-      </li>
-      <li>
-        <img src="https://i.imgur.com/JZdSycW.jpg" alt="Bad Romance Cover">
-        <div>
-          <strong>Sapo Africano</strong>
-          <p>Bad Romance – Cover</p>
+        
+        <div class="conteudo-perfil">
+            <div class="container-foto-perfil">
+                <img src="https://via.placeholder.com/150" alt="Foto do Perfil" class="foto-perfil">
+                <button class="botao-editar-foto">
+                    <i class="fas fa-pencil-alt"></i>
+                </button>
+            </div>
+            
+            <div class="informacoes-perfil">
+                <h1>André Luiz</h1>
+                <p class="biografia">Amante de música em busca constante de novos sons</p>
+            </div>
         </div>
-      </li>
-      <li>
-        <img src="https://i.imgur.com/9YfbsWz.jpg" alt="Hozier">
-        <div>
-          <strong>Hozier</strong>
-          <p>Take Me To Church</p>
-        </div>
-      </li>
-    </ul>
-  </section>
+    </header>
 
-  <footer class="player">
-    <div class="info-musica">
-      <img src="https://upload.wikimedia.org/wikipedia/en/8/8b/Eminem_-_Lose_Yourself.jpg" alt="Eminem">
-      <div>
-        <strong>Eminem</strong>
-        <p>Lose Yourself</p>
-      </div>
+    <!-- Conteúdo principal -->
+    <main class="conteiner">
+        <!-- Estatísticas -->
+        <section class="secao-estatisticas">
+            <div class="grade-estatisticas">
+                <div class="item-estatistica">
+                    <div class="valor-estatistica">9.328</div>
+                    <div class="rotulo-estatistica">Músicas ouvidas</div>
+                </div>
+                <div class="item-estatistica">
+                    <div class="valor-estatistica">Rock</div>
+                    <div class="rotulo-estatistica">Gênero favorito</div>
+                </div>
+                <div class="item-estatistica">
+                    <div class="valor-estatistica">10.728</div>
+                    <div class="rotulo-estatistica">Minutos ouvidos</div>
+                </div>
+                <div class="item-estatistica item-grafico">
+                    <strong>Atividade Diária</strong>
+                    <div class="barras">
+                        <div style="height: 0%" data-value="0%"></div>
+                        <div style="height: 0%" data-value="0%"></div>
+                        <div style="height: 0%" data-value="0%"></div>
+                        <div style="height: 0%" data-value="0%"></div>
+                        <div style="height: 0%" data-value="0%"></div>
+                        <div style="height: 0%" data-value="0%"></div>
+                        <div style="height: 0%" data-value="0%"></div>
+                    </div>
+                    <div class="dias">
+                        <span>D</span><span>S</span><span>T</span><span>Q</span><span>Q</span><span>S</span><span>S</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Histórico de Reprodução -->
+        <section class="historico-reproducao">
+            <h2>Histórico de Reprodução</h2>
+            <div class="lista-historico">
+                <div class="item-historico">
+                    <i class="fas fa-music"></i>
+                    <div class="info-musica">
+                        <div class="titulo-musica">Sinal Máximo</div>
+                        <div class="artista">Não Amar Ver</div>
+                    </div>
+                </div>
+                <div class="item-historico">
+                    <i class="fas fa-music"></i>
+                    <div class="info-musica">
+                        <div class="titulo-musica">Sinal Máximo</div>
+                        <div class="artista">Não Ligeiramente - Cover</div>
+                    </div>
+                </div>
+                <div class="item-historico">
+                    <i class="fas fa-music"></i>
+                    <div class="info-musica">
+                        <div class="titulo-musica">Todos</div>
+                        <div class="artista">Toda Sobre</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal de Edição -->
+    <div class="modal-edicao oculto">
+        <div class="conteudo-modal">
+            <h3>Editar Perfil</h3>
+            <form id="formulario-edicao">
+                <div class="grupo-formulario">
+                    <label for="nome-usuario">Nome de usuário:</label>
+                    <input type="text" id="nome-usuario" value="André Luiz">
+                </div>
+                <div class="grupo-formulario">
+                    <label for="input-foto-perfil">Foto de perfil:</label>
+                    <input type="file" id="input-foto-perfil" accept="image/*">
+                </div>
+                <div class="grupo-formulario">
+                    <label for="input-foto-capa">Foto da capa:</label>
+                    <input type="file" id="input-foto-capa" accept="image/*">
+                </div>
+                <div class="botoes-modal">
+                    <button type="submit">Salvar Alterações</button>
+                    <button type="button" class="botao-cancelar">Cancelar</button>
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="controles">
-      <button>⏮️</button>
-      <button>⏯️</button>
-      <button>⏭️</button>
-    </div>
-    <div class="barra-progresso">
-      <div class="progresso"></div>
-    </div>
-  </footer>
+
+    <!-- Player de Música -->
+    <footer class="rodape">
+        <div class="barra-progresso">
+            <div class="progresso"></div>
+        </div>
+
+        <div class="controles-esquerda">
+            <img src="https://via.placeholder.com/50" alt="Capa do Álbum" class="capa-album">
+            <div class="info-musica">
+                <span class="titulo-musica">Nome da Música</span>
+                <span class="artista">Nome do Artista</span>
+            </div>
+        </div>
+
+        <div class="controles-centro">
+            <div class="botoes-controle">
+                <button class="botao-controle">
+                    <i class="fas fa-step-backward"></i>
+                </button>
+                <button class="botao-controle botao-play">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button class="botao-controle">
+                    <i class="fas fa-step-forward"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="controles-direita">
+            <button class="botao-favorito">
+                <i class="far fa-heart"></i>
+            </button>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
