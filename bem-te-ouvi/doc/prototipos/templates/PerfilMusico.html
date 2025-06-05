@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Músico</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="PerfilMusico.css">
+</head>
+<body>
+    <!-- Barra Superior -->
+    <div class="barra-superior">
+        <a href="index.html"> 
+            <img src="imagens/bird.png" alt="Bem-Te-Ouvi" class="logo-imagem">
+        </a> 
+        <nav class="menu-direito">
+            <a href="#" class="menu-link">Home</a>
+            <a href="#" class="menu-link">Doar</a>
+        </nav>
+    </div>
+
+    <!-- Cabeçalho do Perfil -->
+    <header class="cabecalho-perfil">
+        <div class="foto-capa">
+            <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=400&w=1600" 
+                 alt="Capa do Perfil" 
+                 class="imagem-capa">
+        </div>
+        
+        <div class="conteudo-perfil">
+            <div class="container-foto-perfil">
+                <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=150&w=150" 
+                     alt="Foto do Perfil" 
+                     class="foto-perfil">
+                <button class="botao-editar-foto">
+                    <i class="fas fa-pencil-alt"></i>
+                </button>
+            </div>
+            
+            <div class="informacoes-perfil">
+                <h1>Wagner Alves</h1>
+                <p class="biografia">Amonte de música sempre a procura de novos gêneros.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main>
+        <!-- Estatísticas -->
+        <section class="secao-estatisticas">
+            <div class="grade-estatisticas">
+                <div class="item-estatistica">
+                    <div class="valor-estatistica">R$ 1.700,28</div>
+                    <div class="rotulo-estatistica">Dinheiro arrecadado</div>
+                </div>
+                <div class="item-estatistica">
+                    <div class="valor-estatistica">9.328</div>
+                    <div class="rotulo-estatistica">Músicas ouvidas</div>
+                </div>
+                <div class="item-estatistica">
+                    <div class="valor-estatistica">10.728</div>
+                    <div class="rotulo-estatistica">Minutos neste mês</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Minhas Músicas -->
+        <section class="minhas-musicas">
+            <h2>Minhas músicas</h2>
+            <div class="lista-musicas">
+                <div class="item-musica">
+                    <div class="info-musica">
+                        <div class="titulo-musica">Sapo Africano</div>
+                        <div class="visualizacoes">
+                            <i class="fas fa-eye"></i> 18.628 visualizações
+                        </div>
+                    </div>
+                    <div class="acoes-musica">
+                        <button class="botao-acao botao-editar">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="botao-acao botao-excluir">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="item-musica">
+                    <div class="info-musica">
+                        <div class="titulo-musica">Mais uma vez</div>
+                        <div class="visualizacoes">
+                            <i class="fas fa-eye"></i> 12.459 visualizações
+                        </div>
+                    </div>
+                    <div class="acoes-musica">
+                        <button class="botao-acao botao-editar">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="botao-acao botao-excluir">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="item-musica">
+                    <div class="info-musica">
+                        <div class="titulo-musica">Bad Romance - Cover</div>
+                        <div class="visualizacoes">
+                            <i class="fas fa-eye"></i> 24.876 visualizações
+                        </div>
+                    </div>
+                    <div class="acoes-musica">
+                        <button class="botao-acao botao-editar">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="botao-acao botao-excluir">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal de Edição -->
+    <div class="modal-edicao">
+        <div class="conteudo-modal">
+            <form id="formulario-edicao">
+                <h3>Editar Perfil</h3>
+                <div class="grupo-formulario">
+                    <label for="nome-usuario">Nome Artístico</label>
+                    <input type="text" id="nome-usuario" placeholder="Seu nome artístico">
+                </div>
+                <div class="grupo-formulario">
+                    <label>Foto de Perfil</label>
+                    <div class="grupo-upload">
+                        <input type="file" id="input-foto-perfil" accept="image/*">
+                        <p class="remover-foto" id="remover-foto-perfil">Remover foto atual</p>
+                    </div>
+                </div>
+                <div class="grupo-formulario">
+                    <label>Foto de Capa</label>
+                    <div class="grupo-upload">
+                        <input type="file" id="input-foto-capa" accept="image/*">
+                        <p class="remover-foto" id="remover-foto-capa">Remover foto atual</p>
+                    </div>
+                </div>
+                <div class="botoes-modal">
+                    <button type="submit">Salvar</button>
+                    <button type="button" class="botao-cancelar">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Botão de Letra -->
+    <button class="lyrics-btn">
+        <i class="fas fa-font"></i>
+    </button>
+
+    <!-- Modal de Letras -->
+    <div class="lyrics-modal">
+        <div class="lyrics-header">
+            <button id="close-lyrics"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="lyrics-content"></div>
+    </div>
+
+    <!-- Player de Música Padronizado -->
+    <div class="player-controls">
+        <div class="progress-container">
+            <div class="progress" style="width: 0%"></div>
+        </div>
+        
+        <div class="player-left">
+            <img src="https://upload.wikimedia.org/wikipedia/en/0/00/Sabaton-TheLastStand.jpg" alt="Capa do Álbum" class="album-cover">
+            <div class="track-info">
+                <div class="track-title">The Last Stand</div>
+                <div class="track-artist">Sabaton</div>
+            </div>
+        </div>
+        
+        <div class="player-center">
+            <div class="player-buttons">
+                <button class="player-btn"><i class="fas fa-step-backward"></i></button>
+                <button class="player-btn play-btn"><i class="fas fa-play"></i></button>
+                <button class="player-btn"><i class="fas fa-step-forward"></i></button>
+            </div>
+        </div>
+        
+        <div class="player-right">
+            <button class="player-btn"><i class="far fa-heart"></i></button>
+        </div>
+    </div>
+
+    <audio id="music-player" src="Musicas/SABATON - The Last Stand.mp3"></audio>
+
+    <script src="PerfilMusico.js"></script>
+</body>
+</html>

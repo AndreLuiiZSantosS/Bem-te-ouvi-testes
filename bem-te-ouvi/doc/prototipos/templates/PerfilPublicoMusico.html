@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Público do Artista</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="PerfilMusicoPublico.css">
+</head>
+
+<body>
+    <!-- Barra Superior -->
+    <div class="barra-superior">
+        <a href="index.html">
+            <img src="imagens/bird.png" alt="Bem-Te-Ouvi" class="logo-imagem">
+        </a>
+        <nav class="menu-direito">
+            <a href="#" class="menu-link">Home</a>
+            <a href="#" class="menu-link">Doar</a>
+        </nav>
+    </div>
+
+    <!-- Cabeçalho do Perfil -->
+    <header class="cabecalho-perfil">
+        <div class="foto-capa">
+            <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d" alt="Capa do Perfil" class="imagem-capa">
+        </div>
+
+        <div class="conteudo-perfil">
+            <div class="container-foto-perfil">
+                <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745" alt="Foto do Perfil" class="foto-perfil">
+            </div>
+
+            <div class="informacoes-perfil">
+                <h1>Wagner Alves</h1>
+                <p class="biografia">
+                    Amonte de música sempre a procura de novos gêneros. <br>
+                    🎙️ Artista desde 2020<br>
+                    📍 São Paulo, BR
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main>
+        <!-- Estatísticas Públicas -->
+        <section class="secao-estatisticas">
+            <div class="grade-estatisticas">
+                <div class="item-estatistica">
+                    <div class="valor-estatistica">28.310</div>
+                    <div class="rotulo-estatistica">Ouvintes mensais</div>
+                </div>
+                <div class="item-estatistica">
+                    <div class="valor-estatistica">4.182</div>
+                    <div class="rotulo-estatistica">Seguidores</div>
+                </div>
+                <div class="item-estatistica">
+                    <div class="valor-estatistica">Indie Pop</div>
+                    <div class="rotulo-estatistica">Gênero principal</div>
+                </div>
+                <div class="item-estatistica">
+                    <div class="valor-estatistica">Sapo Africano</div>
+                    <div class="rotulo-estatistica">Top música</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Músicas do Artista -->
+        <section class="minhas-musicas">
+            <h2>Músicas</h2>
+            <div class="lista-musicas">
+                <div class="item-musica">
+                    <div class="info-musica">
+                        <div class="titulo-musica">Sapo Africano</div>
+                        <div class="visualizacoes">
+                            <i class="fas fa-eye"></i> 18.628 visualizações
+                        </div>
+                    </div>
+                </div>
+                <div class="item-musica">
+                    <div class="info-musica">
+                        <div class="titulo-musica">Mais uma vez</div>
+                        <div class="visualizacoes">
+                            <i class="fas fa-eye"></i> 12.459 visualizações
+                        </div>
+                    </div>
+                </div>
+                <div class="item-musica">
+                    <div class="info-musica">
+                        <div class="titulo-musica">Bad Romance - Cover</div>
+                        <div class="visualizacoes">
+                            <i class="fas fa-eye"></i> 24.876 visualizações
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal de Letras -->
+    <div class="lyrics-modal">
+        <div class="lyrics-header">
+            <button id="close-lyrics"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="lyrics-content"></div>
+    </div>
+
+    <!-- Botão de Letra -->
+    <button class="lyrics-btn">
+        <i class="fas fa-font"></i>
+    </button>
+
+    <!-- Player de Música Padronizado -->
+    <div class="player-controls">
+        <div class="progress-container">
+            <div class="progress" style="width: 0%"></div>
+        </div>
+
+        <div class="player-left">
+            <img src="https://upload.wikimedia.org/wikipedia/en/0/00/Sabaton-TheLastStand.jpg" alt="Capa do Álbum" class="album-cover">
+            <div class="track-info">
+                <div class="track-title">The Last Stand</div>
+                <div class="track-artist">Sabaton</div>
+            </div>
+        </div>
+
+        <div class="player-center">
+            <div class="player-buttons">
+                <button class="player-btn"><i class="fas fa-backward"></i></button>
+                <button class="play-btn"><i class="fas fa-play"></i></button>
+                <button class="player-btn"><i class="fas fa-forward"></i></button>
+            </div>
+        </div>
+
+        <div class="player-right"></div>
+    </div>
+
+    <script src="PerfilMusicoPublico.js"></script>
+</body>
+
+</html>
