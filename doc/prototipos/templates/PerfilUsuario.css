@@ -17,6 +17,7 @@ body {
     line-height: 1.6;
 }
 
+
 /* === BARRA SUPERIOR === */
 .barra-superior {
     position: fixed;
@@ -109,6 +110,7 @@ body {
     object-fit: cover;
     object-position: center;
     filter: brightness(0.7);
+    display: block;
     background-color: #1b263b; /* Cor de fundo para placeholder */
 }
 .conteudo-perfil {
@@ -584,19 +586,43 @@ body {
     color: white;
 }
 
+/* Barra de rolagem personalizada (NOVO) */
+.lyrics-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.lyrics-content::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.lyrics-content::-webkit-scrollbar-thumb {
+    background: #94C0D3;
+    border-radius: 4px;
+}
+
 .lyrics-line {
     font-size: 1.3rem;
     margin-bottom: 0.8rem;
     color: rgba(255, 255, 255, 0.7);
     line-height: 1.5;
+    transition: all 0.3s ease; /* Adicionado */
 }
 
 .lyrics-line.active {
-    color: white;
+    color: #C1FDE7; /* Cor alterada */
     font-weight: bold;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+    font-size: 1.4rem; /* Tamanho aumentado */
+    text-shadow: 0 0 10px rgba(193, 253, 231, 0.7); /* Sombra mais intensa */
+    animation: pulse 2s infinite; /* Animação adicionada */
+    margin: 15px 0; /* Espaçamento vertical */
 }
 
+/* Animação */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
 /* === MODAL DE EDIÇÃO === */
 .modal-edicao {
     display: none;

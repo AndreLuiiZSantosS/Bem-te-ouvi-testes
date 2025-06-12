@@ -3,9 +3,10 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
+  
 }
 body {
-  background: #1a1126;
+  background: linear-gradient(135deg, #0d1b2a, #1b263b, #2e2e54);
   color: white;
 }
 header {
@@ -13,10 +14,16 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #1a1126;
+  background: linear-gradient(135deg, #0d1b2a, #1b263b, #2e2e54);
 }
 header img.logo {
   width: 5vw;
+}
+.profile-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 nav a {
   color: white;
@@ -25,7 +32,7 @@ nav a {
   font-weight: bold;
 }
 .banner {
-  background: url(imagens/backgroundTLOU3.jpg) no-repeat center/cover;
+  background: url(imagens/background_user.png) no-repeat center/cover;
   padding: 4rem;
   text-align: center;
   position: relative;

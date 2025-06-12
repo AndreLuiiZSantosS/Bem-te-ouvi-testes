@@ -1,21 +1,26 @@
 # Modelo de Domínio
 
-<img src="classDominio.png"/>
-
-Cardinalidade:
+<img src="modelo_dominio.png"/>
 
 
-Músico -> Música:
-1:N (um músico pode ter várias músicas)
-
-Músico -> Evento:
-1:N (um músico pode criar vários eventos)
+Associações:
 
 Ouvinte -> Playlist:
-1:N (um ouvinte pode ter várias playlists)
+<br>
+`1:*` (um ouvinte pode possuir várias playlists)
 
-Playlist -> Música:
-N:M (uma playlist pode ter várias músicas, e uma música pode estar em várias playlists)
+Playlist -> Música: associação de agregação
+<br>
+`*:1..*` (uma playlist pode conter várias músicas e uma música pode estar contida em várias playlists)
+
+Músico -> Música:
+<br>
+`1:*` (um músico pode postar várias músicas)
+
+Músico -> Evento:
+<br>
+`1:*` (um músico pode criar vários eventos)
+
 
 
 ## Glossário (sugestão)

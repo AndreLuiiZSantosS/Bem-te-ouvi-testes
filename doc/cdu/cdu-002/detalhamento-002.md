@@ -1,28 +1,43 @@
-# CDU002. Nome... 
+CDU002. Login
+Ator principal: ouvinte 
 
-- **Ator principal**: ...
-- **Atores secundários**: ...	 
-- **Resumo**: ...
-- **Pré-condição**: ...
-- **Pós-Condição**: ...
+Atores secundários: musico
 
-## Fluxo Principal
-| Ações do ator | Ações do sistema |
-| :-----------------: | :-----------------: | 
-| 1 - ... | |  
-| | 2 - ... | 
+Resumo: Permite que o usuário registrado acesse sua conta informando credenciais válidas (e-mail e senha).
 
-## Fluxo Alternativo I - ...
-| Ações do ator | Ações do sistema |
-| :-----------------: |:-----------------: | 
-| 1.1 - ... | |  
-| | 1.2 - ... |
+Pré-condição:
+O usuário já está registrado no sistema e acessa a interface de login.
 
-## Fluxo Alternativo II - ...
-| Ações do ator | Ações do sistema |
-| :-----------------: | :-----------------: | 
-| 2.1 - ... | |  
-| | 2.2 - ... |  
+Pós-condição:
+O usuário é autenticado e tem acesso à sua conta ou ao ambiente principal do sistema.
+
+Fluxo Principal – Login com sucesso
+Ações do ator	                      | Ações do sistema
+1 - Acessa a página de login	      | 1 - Exibe o formulário de login
+2 - Informa e-mail e senha válidos	|2 - Valida as credenciais
+3 - Clica no botão "Entrar"	        | 3 - Autentica o usuário e redireciona para o sistema
+
+Fluxo Alternativo I – Credenciais inválidas
+Ações do ator                         |	Ações do sistema
+1.1 - Informa e-mail ou senha errados	| 1.2 - Exibe mensagem de erro: “E-mail ou senha inválidos”
+
+
+Fluxo Alternativo II – Campos em branco
+Ações do ator                                           |	Ações do sistema
+2.1 - Tenta enviar o formulário sem preencher os campos	| 2.2 - Exibe mensagem: “Preencha todos os campos obrigatórios”
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 > Obs. as seções a seguir apenas serão utilizadas na segunda unidade do PDSWeb (segundo orientações do gerente do projeto).
 

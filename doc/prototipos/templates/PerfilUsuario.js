@@ -85,58 +85,68 @@ const grafico = {
                 this.weeklyData = data;
             }
         }
-        this.currentDay = this.getCurrentDay();
+        this.currentDay = this.getCurrentDay(); // <-- sempre define o dia atual
     }
+
 };
 
 // ============== SISTEMA DO MODAL ==============
+
 const modalMusico = {
     init() {
+        console.log("modalMusico.init() chamado!");
+
         this.modalElement = document.querySelector('.modal-edicao');
         this.openBtn = document.querySelector('.botao-editar-foto');
         this.closeBtns = document.querySelectorAll('.botao-cancelar');
         this.fotoPerfilInput = document.getElementById('input-foto-perfil');
         this.fotoCapaInput = document.getElementById('input-foto-capa');
-        
-        this.openBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            this.abrirModal();
-        });
-        
+
+        if (this.openBtn) {
+            this.openBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                console.log("Botão de editar foto clicado");
+                this.abrirModal();
+            });
+        } else {
+            console.warn("⚠️ Botão .botao-editar-foto não encontrado!");
+        }
+
         this.closeBtns.forEach(btn => {
             btn.addEventListener('click', () => this.fecharModal());
         });
 
         document.addEventListener('click', (e) => {
-            if(e.target === this.modalElement) this.fecharModal();
+            if (e.target === this.modalElement) this.fecharModal();
         });
 
         document.getElementById('formulario-edicao').addEventListener('submit', (e) => this.salvarAlteracoes(e));
         this.fotoPerfilInput.addEventListener('change', (e) => this.previewImage(e));
         this.fotoCapaInput.addEventListener('change', (e) => this.previewImage(e));
 
-        // Botões de remover foto
         document.getElementById('remover-foto-perfil').addEventListener('click', () => {
             localStorage.removeItem('fotoPerfil');
-            document.querySelector('.foto-perfil').src = '../imagens/profile-icon';
+            document.querySelector('.foto-perfil').src = 'imagens/profile-icon.png';
             document.getElementById('input-foto-perfil').value = '';
         });
 
         document.getElementById('remover-foto-capa').addEventListener('click', () => {
             localStorage.removeItem('fotoCapa');
-            document.querySelector('.imagem-capa').src = '../imagens/imagem3';
+            document.querySelector('.imagem-capa').src = 'imagens/image3.png';
             document.getElementById('input-foto-capa').value = '';
         });
-        
+
         this.carregarDadosSalvos();
     },
 
     abrirModal() {
+        console.log("abrirModal() chamado");
         this.modalElement.style.display = 'block';
         document.body.style.overflow = 'hidden';
     },
 
     fecharModal() {
+        console.log("fecharModal() chamado");
         this.modalElement.style.display = 'none';
         document.body.style.overflow = 'auto';
     },
@@ -144,18 +154,18 @@ const modalMusico = {
     previewImage(e) {
         const file = e.target.files[0];
         const reader = new FileReader();
-        
+
         reader.onload = (event) => {
-            if(e.target === this.fotoPerfilInput) {
+            if (e.target === this.fotoPerfilInput) {
                 document.querySelector('.foto-perfil').src = event.target.result;
                 localStorage.setItem('fotoPerfil', event.target.result);
-            } else if(e.target === this.fotoCapaInput) {
+            } else if (e.target === this.fotoCapaInput) {
                 document.querySelector('.imagem-capa').src = event.target.result;
                 localStorage.setItem('fotoCapa', event.target.result);
             }
         };
-        
-        if(file) reader.readAsDataURL(file);
+
+        if (file) reader.readAsDataURL(file);
     },
 
     salvarAlteracoes(e) {
@@ -168,19 +178,35 @@ const modalMusico = {
 
     carregarDadosSalvos() {
         const nomeSalvo = localStorage.getItem('nomeUsuario');
-        if(nomeSalvo) {
-            document.querySelector('.informacoes-perfil h1').textContent = nomeSalvo;
-            document.getElementById('nome-usuario').value = nomeSalvo;
+        const nomeEl = document.querySelector('.informacoes-perfil h1');
+        const inputNome = document.getElementById('nome-usuario');
+
+        if (nomeSalvo && nomeSalvo.trim() !== '') {
+            nomeEl.textContent = nomeSalvo;
+            inputNome.value = nomeSalvo;
+        } else {
+            nomeEl.textContent = "Nome de usuário";
+            inputNome.value = "";
         }
 
         const fotoPerfil = localStorage.getItem('fotoPerfil');
-        document.querySelector('.foto-perfil').src = fotoPerfil || '../imagens/profile-icon';
+        const perfilEl = document.querySelector('.foto-perfil');
+        perfilEl.src = (fotoPerfil && fotoPerfil.trim() !== '') 
+            ? fotoPerfil 
+            : 'imagens/profile-icon.png';
 
         const fotoCapa = localStorage.getItem('fotoCapa');
-        document.querySelector('.imagem-capa').src = fotoCapa || '../imagens/imagem3';
+        const capaEl = document.querySelector('.imagem-capa');
+        capaEl.src = (fotoCapa && fotoCapa.trim() !== '') 
+            ? fotoCapa 
+            : 'imagens/image3.png';
     }
-
 };
+
+document.addEventListener('DOMContentLoaded', () => {
+    modalMusico.init();
+});
+
 
 // ============== PLAYER PADRONIZADO ==============
 document.addEventListener('DOMContentLoaded', () => {

@@ -5,15 +5,16 @@
   font-family: 'Inter', sans-serif;
 }
 body {
-  background: #1a1126;
+  background: linear-gradient(135deg, #0d1b2a, #1b263b, #2e2e54);
   color: white;
 }
 header {
+  background: linear-gradient(135deg, #0d1b2a, #1b263b, #2e2e54);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #1a1126;
+  
 }
 header img.logo {
   width: 5vw;
@@ -31,7 +32,7 @@ nav a {
   font-weight: bold;
 }
 .banner {
-  background: url(imagens/backgroundTLOU3.jpg) no-repeat center/cover;
+  background: url(imagens/background_user.png) no-repeat center/cover;
   height: 250px;
   display: flex;
   align-items: flex-end;
