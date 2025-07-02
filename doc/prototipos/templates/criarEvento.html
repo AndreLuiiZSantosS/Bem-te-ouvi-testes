@@ -1,30 +1,31 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="criarEvento.css">
+  <link rel="stylesheet" href="criarEvento.css' %}">
   <link rel="icon" href="imagens/bird.png" type="image/png" />
   <title>bem-te-ouvi - publicar evento</title>
 </head>
 
 <body>
   <header>
-    <a href="index.html"><img src="imagens/Logo1.png" class="logo" alt="Logo" /></a>
-    <img src="imagens/perfil.png" class="profile-icon" alt="Avatar">
+    <a href="index.html"><img src="{% static 'admin/img/Logo1.png" class="logo" alt="Logo" /></a>
+    <img src="{% static 'admin/img/perfil.png" class="profile-icon" alt="Avatar">
   </header>
 
   <section class="banner">
     <div class="profile">
-      <img src="imagens/perfil.png" alt="Foto de perfil">
+      <img src="{% static 'admin/img/perfil.png" alt="Foto de perfil">
       <div class="profile-info">
         <h2>Wagner Alves</h2>
       </div>
     </div>
     <div class="social-icons">
-      <img src="imagens/twitter.png" alt="X">
-      <img src="imagens/instagram.png" alt="Instagram">
-      <img src="imagens/facebook.png" alt="Facebook">
+      <img src="{% static 'admin/img/twitter.png" alt="X">
+      <img src="{% static 'admin/img/instagram.png" alt="Instagram">
+      <img src="{% static 'admin/img/facebook.png" alt="Facebook">
     </div>
   </section>
 

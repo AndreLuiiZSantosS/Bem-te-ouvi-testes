@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil do Usuario</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="PerfilUsuario.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css' %}">
+    <link rel="stylesheet" href="PerfilUsuario.css' %}">
 </head>
 
 <body>
@@ -14,7 +15,7 @@
     <div class="barra-superior">
         <div class="logo-container">
             <a href="index.html">
-                <img src="imagens/bird.png" alt="Bem-Te-Ouvi" class="logo-imagem">
+                <img src="{% static 'admin/img/bird.png" alt="Bem-Te-Ouvi" class="logo-imagem">
             </a>
         </div>
         <nav class="menu-direito">
@@ -26,13 +27,13 @@
     <!-- Cabeçalho do Perfil -->
     <header class="cabecalho-perfil">
         <div class="foto-capa">
-            <img src="imagens/image3.png"
+            <img src="{% static 'admin/img/image3.png"
                 alt="Capa do Perfil" class="imagem-capa">
         </div>
 
         <div class="conteudo-perfil">
             <div class="container-foto-perfil">
-                <img src="imagens/profile-icon.png"
+                <img src="{% static 'admin/img/profile-icon.png"
                     alt="Foto do Perfil" class="foto-perfil">
                 <button class="botao-editar-foto">
                     <i class="fas fa-pencil-alt"></i>
@@ -207,7 +208,7 @@
 
     <audio id="music-player" src="Musicas/SABATON - The Last Stand.mp3"></audio>
 
-    <script src="PerfilUsuario.js"></script>
+    <script src="PerfilUsuario.js' %}"></script>
 </body>
 
 </html>

@@ -1,36 +1,37 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>bem-te-ouvi</title>
-    <link rel="stylesheet" href="principal.css">
+    <link rel="stylesheet" href="principal.css' %}">
 </head>
 
 <body>
     <header>
         <nav>
-            <h1><img src="imagens/logo.png" alt="Logo"></h1>
+            <h1><img src="{% static 'admin/img/logo.png" alt="Logo"></h1>
             <ul id="nav-principal">
                 <li>
                     <a href="">
-                        <img src="imagens/home.png" alt="Ícone de casa"> Home
+                        <img src="{% static 'admin/img/home.png" alt="Ícone de casa"> Home
                     </a>
                 </li>
                 <li>
                     <a href="">
-                        <img src="imagens/star.png" alt="Ícone de estrele"> Favoritos
+                        <img src="{% static 'admin/img/star.png" alt="Ícone de estrele"> Favoritos
                     </a>
                 </li>
                 <li>
                     <a href="">
-                        <img src="imagens/upload.png" alt=""> Publicar
+                        <img src="{% static 'admin/img/upload.png" alt=""> Publicar
                     </a>
                 </li>
                 <li>
                     <a href="">
-                        <img src="imagens/calendar.png" alt=""> Eventos
+                        <img src="{% static 'admin/img/calendar.png" alt=""> Eventos
                     </a>
                 </li>
             </ul>
@@ -39,7 +40,7 @@
             <ul id="playlists">
                 <li>
                     <a href="">
-                        <img src="imagens/heart.png" alt=""> Músicas curtidas
+                        <img src="{% static 'admin/img/heart.png" alt=""> Músicas curtidas
                     </a>
                 </li>
             </ul>
@@ -52,23 +53,23 @@
         <div class="topo">
 
             <a href="index.html">
-                <img src="imagens/musicas.png" alt="">
+                <img src="{% static 'admin/img/musicas.png" alt="">
             </a>
 
             <p>|</p>
 
             <a href="letra.html">
-                <img src="imagens/letra.png" alt="">
+                <img src="{% static 'admin/img/letra.png" alt="">
             </a>
 
             <a href="PerfilUsuario.html" class="profile-icon">
-                <img src="imagens/profile-icon.png" alt="Ícone de perfil">
+                <img src="{% static 'admin/img/profile-icon.png" alt="Ícone de perfil">
             </a>
         </div>
 
         <div class="search-container">
             <input type="text" />
-            <img src="imagens/lupa.png" alt="Ícone de lupa" class="search-icon-img">
+            <img src="{% static 'admin/img/lupa.png" alt="Ícone de lupa" class="search-icon-img">
         </div>
 
 
@@ -77,7 +78,7 @@
 
             <div class="carousel">
                 <div class="card">
-                    <img src="imagens/image1.png" alt="Capa da música" class="card-image">
+                    <img src="{% static 'admin/img/image1.png" alt="Capa da música" class="card-image">
 
                     <div class="card-content">
                         <div class="text">
@@ -85,21 +86,21 @@
                             <p>Súplica cearense</p>
 
                             <div class="icons">
-                                <a href="#"><img src="imagens/instagram.png" alt="Instagram"></a>
-                                <a href="#"><img src="imagens/facebook.png" alt="Facebook"></a>
-                                <a href="#"><img src="imagens/confetti.png" alt="Confetti"></a>
-                                <a href="#"><img src="imagens/copyright.png" alt="Copyright"></a>
+                                <a href="#"><img src="{% static 'admin/img/instagram.png" alt="Instagram"></a>
+                                <a href="#"><img src="{% static 'admin/img/facebook.png" alt="Facebook"></a>
+                                <a href="#"><img src="{% static 'admin/img/confetti.png" alt="Confetti"></a>
+                                <a href="#"><img src="{% static 'admin/img/copyright.png" alt="Copyright"></a>
                             </div>
                         </div>
 
                         <button class="play-button">
-                            <img src="imagens/play.png" alt="Play">
+                            <img src="{% static 'admin/img/play.png" alt="Play">
                         </button>
                     </div>
                 </div>
 
                 <div class="card">
-                    <img src="imagens/image1.png" alt="Capa da música" class="card-image">
+                    <img src="{% static 'admin/img/image1.png" alt="Capa da música" class="card-image">
 
                     <div class="card-content">
                         <div class="text">
@@ -107,21 +108,21 @@
                             <p>Súplica cearense</p>
 
                             <div class="icons">
-                                <a href="#"><img src="imagens/instagram.png" alt="Instagram"></a>
-                                <a href="#"><img src="imagens/facebook.png" alt="Facebook"></a>
-                                <a href="#"><img src="imagens/confetti.png" alt="Confetti"></a>
-                                <a href="#"><img src="imagens/copyright.png" alt="Copyright"></a>
+                                <a href="#"><img src="{% static 'admin/img/instagram.png" alt="Instagram"></a>
+                                <a href="#"><img src="{% static 'admin/img/facebook.png" alt="Facebook"></a>
+                                <a href="#"><img src="{% static 'admin/img/confetti.png" alt="Confetti"></a>
+                                <a href="#"><img src="{% static 'admin/img/copyright.png" alt="Copyright"></a>
                             </div>
                         </div>
 
                         <button class="play-button">
-                            <img src="imagens/play.png" alt="Play">
+                            <img src="{% static 'admin/img/play.png" alt="Play">
                         </button>
                     </div>
                 </div>
 
                 <div class="card">
-                    <img src="imagens/image1.png" alt="Capa da música" class="card-image">
+                    <img src="{% static 'admin/img/image1.png" alt="Capa da música" class="card-image">
 
                     <div class="card-content">
                         <div class="text">
@@ -129,20 +130,20 @@
                             <p>Súplica cearense</p>
 
                             <div class="icons">
-                                <a href="#"><img src="imagens/instagram.png" alt="Instagram"></a>
-                                <a href="#"><img src="imagens/facebook.png" alt="Facebook"></a>
-                                <a href="#"><img src="imagens/confetti.png" alt="Confetti"></a>
-                                <a href="#"><img src="imagens/copyright.png" alt="Copyright"></a>
+                                <a href="#"><img src="{% static 'admin/img/instagram.png" alt="Instagram"></a>
+                                <a href="#"><img src="{% static 'admin/img/facebook.png" alt="Facebook"></a>
+                                <a href="#"><img src="{% static 'admin/img/confetti.png" alt="Confetti"></a>
+                                <a href="#"><img src="{% static 'admin/img/copyright.png" alt="Copyright"></a>
                             </div>
                         </div>
 
                         <button class="play-button">
-                            <img src="imagens/play.png" alt="Play">
+                            <img src="{% static 'admin/img/play.png" alt="Play">
                         </button>
                     </div>
                 </div>
                 <div class="card">
-                    <img src="imagens/image1.png" alt="Capa da música" class="card-image">
+                    <img src="{% static 'admin/img/image1.png" alt="Capa da música" class="card-image">
 
                     <div class="card-content">
                         <div class="text">
@@ -150,21 +151,21 @@
                             <p>Súplica cearense</p>
 
                             <div class="icons">
-                                <a href="#"><img src="imagens/instagram.png" alt="Instagram"></a>
-                                <a href="#"><img src="imagens/facebook.png" alt="Facebook"></a>
-                                <a href="#"><img src="imagens/confetti.png" alt="Confetti"></a>
-                                <a href="#"><img src="imagens/copyright.png" alt="Copyright"></a>
+                                <a href="#"><img src="{% static 'admin/img/instagram.png" alt="Instagram"></a>
+                                <a href="#"><img src="{% static 'admin/img/facebook.png" alt="Facebook"></a>
+                                <a href="#"><img src="{% static 'admin/img/confetti.png" alt="Confetti"></a>
+                                <a href="#"><img src="{% static 'admin/img/copyright.png" alt="Copyright"></a>
                             </div>
                         </div>
 
                         <button class="play-button">
-                            <img src="imagens/play.png" alt="Play">
+                            <img src="{% static 'admin/img/play.png" alt="Play">
                         </button>
                     </div>
                 </div>
 
                 <div class="card">
-                    <img src="imagens/image1.png" alt="Capa da música" class="card-image">
+                    <img src="{% static 'admin/img/image1.png" alt="Capa da música" class="card-image">
 
                     <div class="card-content">
                         <div class="text">
@@ -172,22 +173,22 @@
                             <p>Súplica cearense</p>
 
                             <div class="icons">
-                                <a href="#"><img src="imagens/instagram.png" alt="Instagram"></a>
-                                <a href="#"><img src="imagens/facebook.png" alt="Facebook"></a>
-                                <a href="#"><img src="imagens/confetti.png" alt="Confetti"></a>
-                                <a href="#"><img src="imagens/copyright.png" alt="Copyright"></a>
+                                <a href="#"><img src="{% static 'admin/img/instagram.png" alt="Instagram"></a>
+                                <a href="#"><img src="{% static 'admin/img/facebook.png" alt="Facebook"></a>
+                                <a href="#"><img src="{% static 'admin/img/confetti.png" alt="Confetti"></a>
+                                <a href="#"><img src="{% static 'admin/img/copyright.png" alt="Copyright"></a>
                             </div>
                         </div>
 
                         <button class="play-button">
-                            <img src="imagens/play.png" alt="Play">
+                            <img src="{% static 'admin/img/play.png" alt="Play">
                         </button>
 
                     </div>
                 </div>
 
                 <div class="card">
-                    <img src="imagens/image1.png" alt="Capa da música" class="card-image">
+                    <img src="{% static 'admin/img/image1.png" alt="Capa da música" class="card-image">
 
                     <div class="card-content">
                         <div class="text">
@@ -195,15 +196,15 @@
                             <p>Súplica cearense</p>
 
                             <div class="icons">
-                                <a href="#"><img src="imagens/instagram.png" alt="Instagram"></a>
-                                <a href="#"><img src="imagens/facebook.png" alt="Facebook"></a>
-                                <a href="#"><img src="imagens/confetti.png" alt="Confetti"></a>
-                                <a href="#"><img src="imagens/copyright.png" alt="Copyright"></a>
+                                <a href="#"><img src="{% static 'admin/img/instagram.png" alt="Instagram"></a>
+                                <a href="#"><img src="{% static 'admin/img/facebook.png" alt="Facebook"></a>
+                                <a href="#"><img src="{% static 'admin/img/confetti.png" alt="Confetti"></a>
+                                <a href="#"><img src="{% static 'admin/img/copyright.png" alt="Copyright"></a>
                             </div>
                         </div>
 
                         <button class="play-button">
-                            <img src="imagens/play.png" alt="Play">
+                            <img src="{% static 'admin/img/play.png" alt="Play">
                         </button>
                     </div>
                 </div>
@@ -217,7 +218,7 @@
             <div class="carousel">
 
                 <div class="card">
-                    <img src="imagens/image1.png" alt="Capa da música" class="card-image">
+                    <img src="{% static 'admin/img/image1.png" alt="Capa da música" class="card-image">
 
                     <div class="card-content">
                         <div class="text">
@@ -225,21 +226,21 @@
                             <p>Teste 2</p>
 
                             <div class="icons">
-                                <a href="#"><img src="imagens/instagram.png" alt="Instagram"></a>
-                                <a href="#"><img src="imagens/facebook.png" alt="Facebook"></a>
-                                <a href="#"><img src="imagens/confetti.png" alt="Confetti"></a>
-                                <a href="#"><img src="imagens/copyright.png" alt="Copyright"></a>
+                                <a href="#"><img src="{% static 'admin/img/instagram.png" alt="Instagram"></a>
+                                <a href="#"><img src="{% static 'admin/img/facebook.png" alt="Facebook"></a>
+                                <a href="#"><img src="{% static 'admin/img/confetti.png" alt="Confetti"></a>
+                                <a href="#"><img src="{% static 'admin/img/copyright.png" alt="Copyright"></a>
                             </div>
                         </div>
 
                         <button class="play-button">
-                            <img src="imagens/play.png" alt="Play">
+                            <img src="{% static 'admin/img/play.png" alt="Play">
                         </button>
                     </div>
                 </div>
 
                 <div class="card">
-                    <img src="imagens/image1.png" alt="Capa da música" class="card-image">
+                    <img src="{% static 'admin/img/image1.png" alt="Capa da música" class="card-image">
 
                     <div class="card-content">
                         <div class="text">
@@ -247,21 +248,21 @@
                             <p>Teste 2</p>
 
                             <div class="icons">
-                                <a href="#"><img src="imagens/instagram.png" alt="Instagram"></a>
-                                <a href="#"><img src="imagens/facebook.png" alt="Facebook"></a>
-                                <a href="#"><img src="imagens/confetti.png" alt="Confetti"></a>
-                                <a href="#"><img src="imagens/copyright.png" alt="Copyright"></a>
+                                <a href="#"><img src="{% static 'admin/img/instagram.png" alt="Instagram"></a>
+                                <a href="#"><img src="{% static 'admin/img/facebook.png" alt="Facebook"></a>
+                                <a href="#"><img src="{% static 'admin/img/confetti.png" alt="Confetti"></a>
+                                <a href="#"><img src="{% static 'admin/img/copyright.png" alt="Copyright"></a>
                             </div>
                         </div>
 
                         <button class="play-button">
-                            <img src="imagens/play.png" alt="Play">
+                            <img src="{% static 'admin/img/play.png" alt="Play">
                         </button>
                     </div>
                 </div>
 
                 <div class="card">
-                    <img src="imagens/image1.png" alt="Capa da música" class="card-image">
+                    <img src="{% static 'admin/img/image1.png" alt="Capa da música" class="card-image">
 
                     <div class="card-content">
                         <div class="text">
@@ -269,20 +270,20 @@
                             <p>Teste 2</p>
 
                             <div class="icons">
-                                <a href="#"><img src="imagens/instagram.png" alt="Instagram"></a>
-                                <a href="#"><img src="imagens/facebook.png" alt="Facebook"></a>
-                                <a href="#"><img src="imagens/confetti.png" alt="Confetti"></a>
-                                <a href="#"><img src="imagens/copyright.png" alt="Copyright"></a>
+                                <a href="#"><img src="{% static 'admin/img/instagram.png" alt="Instagram"></a>
+                                <a href="#"><img src="{% static 'admin/img/facebook.png" alt="Facebook"></a>
+                                <a href="#"><img src="{% static 'admin/img/confetti.png" alt="Confetti"></a>
+                                <a href="#"><img src="{% static 'admin/img/copyright.png" alt="Copyright"></a>
                             </div>
                         </div>
 
                         <button class="play-button">
-                            <img src="imagens/play.png" alt="Play">
+                            <img src="{% static 'admin/img/play.png" alt="Play">
                         </button>
                     </div>
                 </div>
                 <div class="card">
-                    <img src="imagens/image1.png" alt="Capa da música" class="card-image">
+                    <img src="{% static 'admin/img/image1.png" alt="Capa da música" class="card-image">
 
                     <div class="card-content">
                         <div class="text">
@@ -290,21 +291,21 @@
                             <p>Teste 2</p>
 
                             <div class="icons">
-                                <a href="#"><img src="imagens/instagram.png" alt="Instagram"></a>
-                                <a href="#"><img src="imagens/facebook.png" alt="Facebook"></a>
-                                <a href="#"><img src="imagens/confetti.png" alt="Confetti"></a>
-                                <a href="#"><img src="imagens/copyright.png" alt="Copyright"></a>
+                                <a href="#"><img src="{% static 'admin/img/instagram.png" alt="Instagram"></a>
+                                <a href="#"><img src="{% static 'admin/img/facebook.png" alt="Facebook"></a>
+                                <a href="#"><img src="{% static 'admin/img/confetti.png" alt="Confetti"></a>
+                                <a href="#"><img src="{% static 'admin/img/copyright.png" alt="Copyright"></a>
                             </div>
                         </div>
 
                         <button class="play-button">
-                            <img src="imagens/play.png" alt="Play">
+                            <img src="{% static 'admin/img/play.png" alt="Play">
                         </button>
                     </div>
                 </div>
 
                 <div class="card">
-                    <img src="imagens/image1.png" alt="Capa da música" class="card-image">
+                    <img src="{% static 'admin/img/image1.png" alt="Capa da música" class="card-image">
 
                     <div class="card-content">
                         <div class="text">
@@ -312,22 +313,22 @@
                             <p>Teste 2</p>
 
                             <div class="icons">
-                                <a href="#"><img src="imagens/instagram.png" alt="Instagram"></a>
-                                <a href="#"><img src="imagens/facebook.png" alt="Facebook"></a>
-                                <a href="#"><img src="imagens/confetti.png" alt="Confetti"></a>
-                                <a href="#"><img src="imagens/copyright.png" alt="Copyright"></a>
+                                <a href="#"><img src="{% static 'admin/img/instagram.png" alt="Instagram"></a>
+                                <a href="#"><img src="{% static 'admin/img/facebook.png" alt="Facebook"></a>
+                                <a href="#"><img src="{% static 'admin/img/confetti.png" alt="Confetti"></a>
+                                <a href="#"><img src="{% static 'admin/img/copyright.png" alt="Copyright"></a>
                             </div>
                         </div>
 
                         <button class="play-button">
-                            <img src="imagens/play.png" alt="Play">
+                            <img src="{% static 'admin/img/play.png" alt="Play">
                         </button>
 
                     </div>
                 </div>
 
                 <div class="card">
-                    <img src="imagens/image1.png" alt="Capa da música" class="card-image">
+                    <img src="{% static 'admin/img/image1.png" alt="Capa da música" class="card-image">
 
                     <div class="card-content">
                         <div class="text">
@@ -335,15 +336,15 @@
                             <p>Teste 2</p>
 
                             <div class="icons">
-                                <a href="#"><img src="imagens/instagram.png" alt="Instagram"></a>
-                                <a href="#"><img src="imagens/facebook.png" alt="Facebook"></a>
-                                <a href="#"><img src="imagens/confetti.png" alt="Confetti"></a>
-                                <a href="#"><img src="imagens/copyright.png" alt="Copyright"></a>
+                                <a href="#"><img src="{% static 'admin/img/instagram.png" alt="Instagram"></a>
+                                <a href="#"><img src="{% static 'admin/img/facebook.png" alt="Facebook"></a>
+                                <a href="#"><img src="{% static 'admin/img/confetti.png" alt="Confetti"></a>
+                                <a href="#"><img src="{% static 'admin/img/copyright.png" alt="Copyright"></a>
                             </div>
                         </div>
 
                         <button class="play-button">
-                            <img src="imagens/play.png" alt="Play">
+                            <img src="{% static 'admin/img/play.png" alt="Play">
                         </button>
                     </div>
                 </div>
@@ -358,7 +359,7 @@
             <div class="carousel">
 
                 <div class="card">
-                    <img src="imagens/image1.png" alt="Capa da música" class="card-image">
+                    <img src="{% static 'admin/img/image1.png" alt="Capa da música" class="card-image">
 
                     <div class="card-content">
                         <div class="text">
@@ -366,21 +367,21 @@
                             <p>Teste 3</p>
 
                             <div class="icons">
-                                <a href="#"><img src="imagens/instagram.png" alt="Instagram"></a>
-                                <a href="#"><img src="imagens/facebook.png" alt="Facebook"></a>
-                                <a href="#"><img src="imagens/confetti.png" alt="Confetti"></a>
-                                <a href="#"><img src="imagens/copyright.png" alt="Copyright"></a>
+                                <a href="#"><img src="{% static 'admin/img/instagram.png" alt="Instagram"></a>
+                                <a href="#"><img src="{% static 'admin/img/facebook.png" alt="Facebook"></a>
+                                <a href="#"><img src="{% static 'admin/img/confetti.png" alt="Confetti"></a>
+                                <a href="#"><img src="{% static 'admin/img/copyright.png" alt="Copyright"></a>
                             </div>
                         </div>
 
                         <button class="play-button">
-                            <img src="imagens/play.png" alt="Play">
+                            <img src="{% static 'admin/img/play.png" alt="Play">
                         </button>
                     </div>
                 </div>
 
                 <div class="card">
-                    <img src="imagens/image1.png" alt="Capa da música" class="card-image">
+                    <img src="{% static 'admin/img/image1.png" alt="Capa da música" class="card-image">
 
                     <div class="card-content">
                         <div class="text">
@@ -388,21 +389,21 @@
                             <p>Teste 3</p>
 
                             <div class="icons">
-                                <a href="#"><img src="imagens/instagram.png" alt="Instagram"></a>
-                                <a href="#"><img src="imagens/facebook.png" alt="Facebook"></a>
-                                <a href="#"><img src="imagens/confetti.png" alt="Confetti"></a>
-                                <a href="#"><img src="imagens/copyright.png" alt="Copyright"></a>
+                                <a href="#"><img src="{% static 'admin/img/instagram.png" alt="Instagram"></a>
+                                <a href="#"><img src="{% static 'admin/img/facebook.png" alt="Facebook"></a>
+                                <a href="#"><img src="{% static 'admin/img/confetti.png" alt="Confetti"></a>
+                                <a href="#"><img src="{% static 'admin/img/copyright.png" alt="Copyright"></a>
                             </div>
                         </div>
 
                         <button class="play-button">
-                            <img src="imagens/play.png" alt="Play">
+                            <img src="{% static 'admin/img/play.png" alt="Play">
                         </button>
                     </div>
                 </div>
 
                 <div class="card">
-                    <img src="imagens/image1.png" alt="Capa da música" class="card-image">
+                    <img src="{% static 'admin/img/image1.png" alt="Capa da música" class="card-image">
 
                     <div class="card-content">
                         <div class="text">
@@ -410,20 +411,20 @@
                             <p>Teste 3</p>
 
                             <div class="icons">
-                                <a href="#"><img src="imagens/instagram.png" alt="Instagram"></a>
-                                <a href="#"><img src="imagens/facebook.png" alt="Facebook"></a>
-                                <a href="#"><img src="imagens/confetti.png" alt="Confetti"></a>
-                                <a href="#"><img src="imagens/copyright.png" alt="Copyright"></a>
+                                <a href="#"><img src="{% static 'admin/img/instagram.png" alt="Instagram"></a>
+                                <a href="#"><img src="{% static 'admin/img/facebook.png" alt="Facebook"></a>
+                                <a href="#"><img src="{% static 'admin/img/confetti.png" alt="Confetti"></a>
+                                <a href="#"><img src="{% static 'admin/img/copyright.png" alt="Copyright"></a>
                             </div>
                         </div>
 
                         <button class="play-button">
-                            <img src="imagens/play.png" alt="Play">
+                            <img src="{% static 'admin/img/play.png" alt="Play">
                         </button>
                     </div>
                 </div>
                 <div class="card">
-                    <img src="imagens/image1.png" alt="Capa da música" class="card-image">
+                    <img src="{% static 'admin/img/image1.png" alt="Capa da música" class="card-image">
 
                     <div class="card-content">
                         <div class="text">
@@ -431,21 +432,21 @@
                             <p>Teste 3</p>
 
                             <div class="icons">
-                                <a href="#"><img src="imagens/instagram.png" alt="Instagram"></a>
-                                <a href="#"><img src="imagens/facebook.png" alt="Facebook"></a>
-                                <a href="#"><img src="imagens/confetti.png" alt="Confetti"></a>
-                                <a href="#"><img src="imagens/copyright.png" alt="Copyright"></a>
+                                <a href="#"><img src="{% static 'admin/img/instagram.png" alt="Instagram"></a>
+                                <a href="#"><img src="{% static 'admin/img/facebook.png" alt="Facebook"></a>
+                                <a href="#"><img src="{% static 'admin/img/confetti.png" alt="Confetti"></a>
+                                <a href="#"><img src="{% static 'admin/img/copyright.png" alt="Copyright"></a>
                             </div>
                         </div>
 
                         <button class="play-button">
-                            <img src="imagens/play.png" alt="Play">
+                            <img src="{% static 'admin/img/play.png" alt="Play">
                         </button>
                     </div>
                 </div>
 
                 <div class="card">
-                    <img src="imagens/image1.png" alt="Capa da música" class="card-image">
+                    <img src="{% static 'admin/img/image1.png" alt="Capa da música" class="card-image">
 
                     <div class="card-content">
                         <div class="text">
@@ -453,22 +454,22 @@
                             <p>Teste 3</p>
 
                             <div class="icons">
-                                <a href="#"><img src="imagens/instagram.png" alt="Instagram"></a>
-                                <a href="#"><img src="imagens/facebook.png" alt="Facebook"></a>
-                                <a href="#"><img src="imagens/confetti.png" alt="Confetti"></a>
-                                <a href="#"><img src="imagens/copyright.png" alt="Copyright"></a>
+                                <a href="#"><img src="{% static 'admin/img/instagram.png" alt="Instagram"></a>
+                                <a href="#"><img src="{% static 'admin/img/facebook.png" alt="Facebook"></a>
+                                <a href="#"><img src="{% static 'admin/img/confetti.png" alt="Confetti"></a>
+                                <a href="#"><img src="{% static 'admin/img/copyright.png" alt="Copyright"></a>
                             </div>
                         </div>
 
                         <button class="play-button">
-                            <img src="imagens/play.png" alt="Play">
+                            <img src="{% static 'admin/img/play.png" alt="Play">
                         </button>
 
                     </div>
                 </div>
 
                 <div class="card">
-                    <img src="imagens/image1.png" alt="Capa da música" class="card-image">
+                    <img src="{% static 'admin/img/image1.png" alt="Capa da música" class="card-image">
 
                     <div class="card-content">
                         <div class="text">
@@ -476,15 +477,15 @@
                             <p>Teste 3</p>
 
                             <div class="icons">
-                                <a href="#"><img src="imagens/instagram.png" alt="Instagram"></a>
-                                <a href="#"><img src="imagens/facebook.png" alt="Facebook"></a>
-                                <a href="#"><img src="imagens/confetti.png" alt="Confetti"></a>
-                                <a href="#"><img src="imagens/copyright.png" alt="Copyright"></a>
+                                <a href="#"><img src="{% static 'admin/img/instagram.png" alt="Instagram"></a>
+                                <a href="#"><img src="{% static 'admin/img/facebook.png" alt="Facebook"></a>
+                                <a href="#"><img src="{% static 'admin/img/confetti.png" alt="Confetti"></a>
+                                <a href="#"><img src="{% static 'admin/img/copyright.png" alt="Copyright"></a>
                             </div>
                         </div>
 
                         <button class="play-button">
-                            <img src="imagens/play.png" alt="Play">
+                            <img src="{% static 'admin/img/play.png" alt="Play">
                         </button>
                     </div>
                 </div>
@@ -497,7 +498,7 @@
 
         <div class="progress-bar">
             <div class="music-details">
-                <img src="imagens/image2.png" alt="Capa da música">
+                <img src="{% static 'admin/img/image2.png" alt="Capa da música">
                 <div class="text-info">
                     <h3>Artista</h3>
                     <p>Nome da música</p>
@@ -505,13 +506,13 @@
             </div>
 
             <div class="player-control">
-                <img src="imagens/foward-arrow.png" alt="Avançar">
-                <img src="imagens/pause.png" alt="Pausar">
-                <img src="imagens/back-arrow.png" alt="Voltar">
+                <img src="{% static 'admin/img/foward-arrow.png" alt="Avançar">
+                <img src="{% static 'admin/img/pause.png" alt="Pausar">
+                <img src="{% static 'admin/img/back-arrow.png" alt="Voltar">
             </div>
 
             <button class="favorite-button" id="favoriteBtn">
-                <img src="imagens/favorite-icon.png" alt="Favorito" id="favoriteIcon">
+                <img src="{% static 'admin/img/favorite-icon.png" alt="Favorito" id="favoriteIcon">
             </button>
         </div>
 
@@ -522,7 +523,7 @@
 
     </footer>
 
-    <script src="index.js"></script>
+    <script src="index.js' %}"></script>
 </body>
 
 </html>
