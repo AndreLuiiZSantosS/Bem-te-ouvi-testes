@@ -1,0 +1,502 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Garante que o corpo ocupe a altura total da viewport */
+    /* Gradiente de fundo principal com as cores do Bem-te-ouvi */
+    background: linear-gradient(135deg, #0d1b2a, #1b263b, #2e2e54);
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Fixa o gradiente ao scroll */
+    background-size: cover; /* Garante que o gradiente cubra toda a área */
+    color: white; /* Cor padrão do texto */
+    font-family: Arial, sans-serif; /* Fonte padrão */
+    overflow: hidden; /* Evita scroll na tela principal */
+    display: flex; /* Centraliza o conteúdo principal */
+    justify-content: center;
+    align-items: center;
+}
+
+/* 2. Container Principal da Música */
+#main-music-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* REVERTIDO: Voltando para space-between para manter o player no rodapé */
+    justify-content: space-between; /* Espaça o título, info e player */
+    /* REMOVER: ou comentar a linha de 'gap' se você a adicionou */
+    /* gap: 2rem; */
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.5s ease-in-out;
+}
+
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Gradiente para sobreposição, com transparência para a capa de fundo */
+    background: linear-gradient(180deg, rgba(13, 27, 42, 0.8), rgba(27, 38, 59, 0.9), rgba(46, 46, 84, 0.95));
+    backdrop-filter: blur(8px); /* Efeito de desfoque moderno */
+    -webkit-backdrop-filter: blur(8px); /* Compatibilidade Safari */
+    z-index: 1; /* Garante que fique acima da imagem de fundo, mas abaixo do conteúdo */
+}
+
+/* 3. Seção do Logo e Título do Sistema */
+#container-bird-and-title {
+    position: relative;
+    z-index: 2; /* Acima do overlay */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    max-width: 900px;
+    margin-top: 1.6rem;
+}
+
+#container-bird {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#bird {
+    width: 4rem;
+    transition: transform 0.3s ease-in-out; /* Efeito de zoom ao passar o mouse */
+}
+
+#bird:hover {
+    transform: scale(1.06);
+    filter: brightness(1.1); /* Um leve brilho ao passar o mouse */
+}
+
+.system-title {
+    text-align: center;
+    font-size: 1.7rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+
+hr {
+    position: relative;
+    z-index: 2;
+    width: 70%;
+    max-width: 1300px;
+    margin: 0 auto;
+    border: 1px solid rgba(77, 77, 77, 0.183); /* Linha divisória sutil */
+}
+
+/* 4. Informações da Música e Player (área central) */
+.music-info-and-player {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    max-width: 900px;
+    padding-top: 2rem;
+    box-sizing: border-box;
+    /* MANTER REMOVIDO: ou comentar esta linha */
+    /* padding-bottom: 5rem; */
+}
+
+.album-cover-display {
+    width: 15rem;
+    height: 15rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Sombra elegante para a capa */
+}
+
+#album-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem preencha o container */
+}
+
+.music-details {
+    text-align: center;
+    /* REDUZIR esta margem para que o bloco suba mais */
+    margin-top: 0.5rem; /* Era 1.5rem, reduza para 0.5rem ou até 0rem se necessário */
+}
+
+.now-playing-text {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    /* Ajuste fino para a margem inferior para aproximar do título */
+    margin-bottom: 0.1rem; /* Era 0.3rem */
+    letter-spacing: 1px;
+}
+
+.music-title {
+    font-size: 2.2rem;
+    /* Ajuste fino para a margem inferior para aproximar do artista */
+    margin-bottom: 0.1rem; /* Era 0.3rem */
+    color: #94C0D3;
+}
+
+.artist-name {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.754);
+    margin-top: 0; /* Manter em 0, pois já está bom */
+}
+
+.now-playing-text {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 0.3rem;
+    letter-spacing: 1px; /* Espaçamento entre letras para melhor leitura */
+}
+
+.music-title {
+    font-size: 2.2rem;
+    margin-bottom: 0.3rem;
+    color: #94C0D3; /* Cor do azul bebê do Bem-te-ouvi */
+}
+
+.artist-name {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.754);
+    margin-top: 0;
+}
+
+/* 5. Controles do Player (fixos na parte inferior) */
+.player-controls-bottom {
+    position: fixed; /* Fixado na parte inferior */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente */
+    backdrop-filter: blur(10px); /* Desfoque para o fundo do player */
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 10; /* Acima de quase tudo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 0;
+    box-sizing: border-box;
+
+    /* PROPRIEDADES PARA O HOVER - AJUSTADO PARA UM POUCO MAIS VISÍVEL */
+    transform: translateY(calc(100% - 13px)); /* Mostra os 60px superiores do player */
+    transition: transform 0.3s ease-in-out; /* Transição suave para o movimento */
+}
+
+/* Regra para mostrar o player quando o mouse estiver sobre o player */
+.player-controls-bottom:hover {
+    transform: translateY(0); /* Ao passar o mouse, sobe totalmente */
+}
+
+.progress-bar-container {
+    width: 90%;
+    max-width: 600px;
+    height: 0.4rem;
+    background-color: rgba(77, 77, 77, 0.5);
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.progress-bar-music {
+    height: 100%;
+    width: var(--progress-width, 0%); /* Variável CSS controlada pelo JS */
+    background-color: #94C0D3; /* Cor do azul bebê do Bem-te-ouvi */
+    border-radius: 25px;
+    transition: width 0.1s linear; /* Transição suave para o progresso */
+}
+
+.time-display {
+    width: 90%;
+    max-width: 600px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.buttons-control {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.control-button {
+    background-color: transparent;
+    color: white;
+    border: none;
+    padding: 0.7rem;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.control-button:hover {
+    color: #5ac8fa; /* Azul claro para o hover */
+    transform: scale(1.1);
+}
+
+.large-button {
+    font-size: 2.5rem; /* Botão de play/pause maior */
+    padding: 0; /* Ajusta o padding para o ícone maior */
+}
+
+/* 6. Botão Flutuante para Abrir a Letra */
+#open-lyrics-button {
+    position: fixed;
+    bottom: calc(5rem + 15px); /* Acima do player fixo + espaçamento */
+    right: 20px; /* Posição à direita */
+    background-color: #94C0D3; /* Cor do botão (azul bebê) */
+    color: #0d1b2a; /* Cor do ícone (azul escuro para contraste) */
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 11; /* Acima do player */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#open-lyrics-button:hover {
+    background-color: #5ac8fa; /* Azul claro para o hover */
+    transform: scale(1.05);
+}
+
+/* 7. Seção da Letra da Música (tela cheia) */
+.lyrics-section {
+    position: fixed; /* Fixada na tela para ocupar o espaço necessário */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Ocupa a tela inteira quando visível */
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo mais escuro para a letra */
+    backdrop-filter: blur(15px); /* Desfoque maior para o fundo da letra */
+    -webkit-backdrop-filter: blur(15px);
+    z-index: 12; /* Acima de tudo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+    box-sizing: border-box;
+    transform: translateY(100%); /* Escondido inicialmente, slide-up para aparecer */
+    transition: transform 0.5s ease-out;
+}
+
+.lyrics-section.show {
+    transform: translateY(0); /* Mostra a seção de letras */
+}
+
+/* Estilo para a seção de letra em modo tela cheia (opcional, para visualização de letras expandidas) */
+.lyrics-section.fullscreen {
+    
+}
+
+
+.lyrics-actions {
+    width: 90%; /* Ajustado para a seção em tela cheia */
+    max-width: 900px;
+    display: flex;
+    justify-content: flex-end; /* Botões de ação alinhados à direita */
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+/* Botão de Fechar dentro da seção de letras (à esquerda) */
+#close-lyrics-button {
+    margin-right: auto; /* Empurra o botão de fechar para a esquerda */
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+#close-lyrics-button:hover {
+    color: #5ac8fa; /* Azul claro para o hover */
+}
+
+/* Botões de Ação genéricos na seção de letras (compartilhar, mais opções) */
+.lyrics-actions .action-button {
+    background-color: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.7); /* Cor mais suave para botões de ação */
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s ease;
+    padding: 0.5rem; /* Adicionado um padding para facilitar o clique */
+    border-radius: 5px; /* Leve arredondamento */
+}
+
+.lyrics-actions .action-button:hover {
+    color: #94C0D3; /* Azul bebê no hover */
+    transform: scale(1.05);
+}
+
+
+.lyrics-container {
+    width: 90%; /* Ajustado para a seção em tela cheia */
+    max-width: 900px;
+    height: calc(100% - 120px); /* Altura do container da letra, descontando o cabeçalho e botões */
+    overflow-y: scroll; /* Permite rolagem vertical */
+    padding: 0 1rem;
+    box-sizing: border-box;
+    text-align: center;
+    scroll-behavior: smooth; /* Rolagem suave ao navegar entre linhas */
+}
+
+/* Estilos de scrollbar (Webkit) */
+.lyrics-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.lyrics-container::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+}
+
+.lyrics-container::-webkit-scrollbar-thumb {
+    background: #94C0D3; /* Azul bebê do Bem-te-ouvi */
+    border-radius: 10px;
+}
+
+.lyrics-container::-webkit-scrollbar-thumb:hover {
+    background: #5ac8fa; /* Azul claro no hover */
+}
+
+.lyrics-line {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    color: rgba(255, 255, 255, 0.7); /* Cor padrão para linhas não ativas */
+    transition: color 0.3s ease, font-weight 0.3s ease, transform 0.3s ease;
+    line-height: 1.5; /* Altura da linha para melhor legibilidade */
+}
+
+.lyrics-line.active-lyric {
+    color: white; /* Cor branca para a linha ativa */
+    font-weight: bold;
+    transform: scale(1.05); /* Leve zoom na linha ativa */
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4); /* Sombra para destacar */
+}
+
+/* 8. Responsividade */
+@media (max-width: 768px) {
+    #container-bird-and-title, .music-info-and-player {
+        width: 90%;
+    }
+
+    .album-cover-display {
+        width: 12rem;
+        height: 12rem;
+    }
+
+    .music-title {
+        font-size: 1.8rem;
+    }
+
+    .artist-name {
+        font-size: 1.1rem;
+    }
+
+    .player-controls-bottom {
+        padding: 0.8rem 0;
+        /* Reajuste para responsividade no player, se necessário,
+           mas mantendo a lógica de hover */
+        transform: translateY(calc(100% - 40px)); /* Mostra menos no mobile */
+    }
+
+    .control-button {
+        font-size: 1rem;
+    }
+
+    .large-button {
+        font-size: 2rem;
+    }
+
+    #open-lyrics-button {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+        bottom: calc(4.5rem + 15px); /* Ajuste para o botão flutuante */
+    }
+
+    .lyrics-section {
+        padding-top: 0.5rem;
+    }
+    .lyrics-actions {
+        width: 95%;
+        padding-top: 1.5rem; /* Mais espaço para o cabeçalho no mobile */
+    }
+    .lyrics-container {
+        width: 95%;
+        height: calc(100% - 100px);
+    }
+    .lyrics-line {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #container-bird-and-title, .music-info-and-player {
+        width: 95%;
+    }
+
+    #bird {
+        width: 3rem;
+    }
+
+    .system-title {
+        font-size: 1.3rem;
+    }
+
+    .album-cover-display {
+        width: 10rem;
+        height: 10rem;
+    }
+
+    .music-title {
+        font-size: 1.5rem;
+    }
+
+    .artist-name {
+        font-size: 1rem;
+    }
+
+    .buttons-control {
+        flex-wrap: wrap; /* Permite que os botões quebrem a linha */
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .control-button {
+        font-size: 0.9rem;
+    }
+
+    .large-button {
+        font-size: 1.8rem;
+    }
+
+    #open-lyrics-button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+        bottom: calc(4rem + 10px); /* Ajuste final para o botão flutuante */
+    }
+
+    .lyrics-actions {
+        padding-top: 1rem;
+    }
+    .lyrics-container {
+        height: calc(100% - 90px);
+    }
+    .lyrics-line {
+        font-size: 1rem;
+    }
+}

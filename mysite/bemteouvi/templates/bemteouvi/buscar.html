@@ -1,0 +1,35 @@
+<h1>Resultados para: "{{ termo }}"</h1>
+
+{% if artistas %}
+  <h2>Artistas</h2>
+  <ul>
+    {% for artista in artistas %}
+      <li>{{ artista.nome }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+{% if usuarios %}
+  <h2>Usuários</h2>
+  <ul>
+    {% for user in usuarios %}
+      <li>{{ user.nome }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+{% if musicas %}
+  <h2>Músicas</h2>
+  <ul>
+    {% for musica in musicas %}
+      <li>{{ musica.titulo }} - {{ musica.artista.nome }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+{% if not artistas and not usuarios and not musicas %}
+  <p>Nenhum resultado encontrado.</p>
+  {% if sugestao %}
+    <p>Você quis dizer: <strong>{{ sugestao }}</strong>?</p>
+  {% endif %}
+{% endif %}

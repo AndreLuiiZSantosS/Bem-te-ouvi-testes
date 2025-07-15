@@ -1,0 +1,163 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'bemteouvi/css/cadastro.css'%}">
+    <title>bem-te-ouvi - cadastro</title>
+</head>
+<body>
+    <div id="container-bird">
+        <a href="{% url 'index' %}">
+            <img src="{% static 'bemteouvi/img/bird.png'%}" alt="imagem de um pássaro" id="bird">
+        </a>
+    </div>
+    <h1 class="enter-name">Entrar no Bem-te-ouvi</h1>
+    <hr>
+
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar1">
+        </div>
+    </div>
+
+    <!-- PÁGINA 1 -->
+    <div class="container1 active">
+        <div class="horizontal-line">
+            <a href="{% url 'index' %}">
+                <img src="{% static 'bemteouvi/img/back.png'%}" alt="imagem de voltar" id="back">
+            </a>
+            <div class="text-container">
+                <h3>Etapa 1 de 3</h3>
+                <h3>Entre ou Crie um perfil</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- AQUI COMEÇA PRIMEIRO FORMULÁRIO -->
+    <div class="container-form1 active">
+        <form class="form1" method="" autocomplete="on">
+            <div class="input-container">
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" placeholder="nome@dominio.com" name="email" required>
+            </div>
+            <div class="input-container">
+                <label for="password">Senha:</label><br>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <p>A senha deve ter pelo menos:</p>
+            <ul class="required-password">
+                <li id="letter">
+                    <span class="ball">
+                    </span>
+                    <span class="color-text">
+                        1 Letra
+                    </span>
+                </li>
+                <li id="characters">
+                    <span class="ball">
+                    </span>
+                    <span class="color-text">
+                        10 Caracteres
+                    </span>
+                </li>
+                <li id="special">
+                    <span class="ball">
+                    </span>
+                    <span class="color-text">
+                        1 Número ou caractere especial<br> (Ex: ! @ # $ % ^ & *)
+                    </span>
+                </li>
+            </ul>
+            <button type="button" class="submit-button">Próximo</button>
+        </form>
+    </div>
+
+
+    <!-- PÁGINA 2 -->
+    <div class="container2" style="display: none;">
+        <div class="horizontal-line">
+            <a href="{% url 'cadastro' %}" id="back-step1">
+                <img src="{% static 'bemteouvi/img/back.png'%}" alt="imagem de voltar" id="back">
+            </a>
+            <div class="text-container">
+                <h3>Etapa 2 de 3</h3>
+                <h3>Sobre você</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-form2" style="display: none;">
+        <form action="" method="" autocomplete="on">
+            <div class="input-container">
+                <label for="name">Nome:</label><br>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="input-container">
+                <label for="birth">Data de nascimento:</label><br>
+                <input type="date" id="birth" name="birth" required>
+            </div>
+            <p id="gender-label">Gênero:</p>
+            <div class="input-container-gender">
+                <label for="man"><input type="radio" id="man" name="gender" required>Homem</label>
+                <label for="woman"><input type="radio" id="woman" name="gender" required>Mulher</label>
+                <label for="non-binary"><input type="radio" id="non-binary" name="gender" required>Não-binário</label>
+                <label for="other"><input type="radio" id="other" name="gender" required>Outro</label>
+                <label for="personal"><input type="radio" id="personal" name="gender" checked>Prefiro não informar</label>
+            </div>
+            <p id="perfil-label">Perfil:</p>
+            <div class="radio-group">
+                <label><input type="radio" name="perfil" value="ouvir" class="hear" checked> Quero ouvir
+                    música</label><br>
+                <label><input type="radio" name="perfil" value="publicar" class="publish"> Quero publicar minhas
+                    músicas</label>
+            </div>
+
+            <!-- Inputs extras que serão mostrados apenas se "publicar" for selecionado -->
+            <div id="input-container-publish" style="display: none;">
+                <div class="input-container">
+                    <label for="cpf">CPF:</label><br>
+                    <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00">
+                </div>
+                <div class="input-container">
+                    <label for="pix">Chave Pix:</label><br>
+                    <input type="text" id="pix" name="pix" placeholder="Email, CPF ou número">
+                </div>
+            </div>
+            <button type="button" class="submit-button2">Próximo</button>
+        </form>
+    </div>
+
+    <!-- PÁGINA 3 -->
+
+    <div class="container3" style="display: none;">
+        <div class="horizontal-line">
+            <a href="{% url 'cadastro' %}" id="back-step2">
+                <img src="{% static 'bemteouvi/img/back.png'%}" alt="imagem de voltar" id="back">
+            </a>
+            <div class="text-container">
+                <h3>Etapa 3 de 3</h3>
+                <h3>Termos e condições</h3>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-form3" style="display: none;">
+        <form action="" method="">
+            <div class="input-container3">
+                <label for="termo-uso1"><input type="checkbox" id="termo-uso1" name="termo-uso">Não quero receber
+                    mensagens</label>
+                <label for="termo-uso2"><input type="checkbox" id="termo-uso2" name="termo-uso" checked>Usar meus dados para
+                    a melhoria contínua do site</label>
+                <label for="termo-uso3"><input type="checkbox" id="termo-uso3" name="termo-uso" checked>Eu concordo com os
+                    termos de condições de uso do Bem-te-ouvi</label>
+            </div>
+            <button type="button" class="submit-button3">Inscrever-se</button>
+        </form>
+    </div>
+    <script src="{% static 'bemteouvi/js/cadastro.js'%}" defer></script>
+</body>
+</html>
+    
+

@@ -1,5 +1,7 @@
 # Diagrama de Classes de Projeto
 
+<img src="diagramaV3.png">
+
 Descrição e imagem do diagrama de classes de projeto...
 
 ## Glossário (sugestão)
