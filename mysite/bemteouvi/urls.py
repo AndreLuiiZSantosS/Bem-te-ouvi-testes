@@ -11,5 +11,6 @@ urlpatterns = [
     path('playlist/', views.playlist , name='playlist'),
     path('criarMusica/', views.criarMusica , name='criarMusica'),
     path('criarEvento/', views.criarEvento , name='criarEvento'),
-    path('buscar/', views.buscar, name='buscar'),
+    path('buscar/', views.buscar_ajax, name='buscar'),
+
 ]
