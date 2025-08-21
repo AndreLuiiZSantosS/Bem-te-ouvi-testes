@@ -1,20 +1,20 @@
-# CDU007. Postar Evento
+# CDU007. Anunciar Evento
 
 - **Ator principal**: Músico
-- **Atores secundários**: —
-- **Resumo**: Permite que o músico divulgue um evento musical, informando local, data, horário e descrição, tornando-o visível ao público na plataforma.
-- **Pré-condição**: O músico deve estar autenticado no sistema.
+- **Atores secundários**:
+- **Resumo**: Permite que o músico divulgue um evento, informando nome, descrição, data, local e arquivo de imagem(opcional) tornando-o visível ao público na plataforma.
+- **Pré-condição**: O usuário deve estar autenticado no sistema.
 - **Pós-condição**: O evento é registrado no sistema e exibido no perfil do músico e na agenda pública da plataforma.
 
 ## Fluxo Principal – Evento postado com sucesso
 | Ações do ator | Ações do sistema |
 | :-----------------: | :-----------------: | 
-| 1 - Acessa a área “Postar Evento”	                                      | | 
-|                                                                         | 2 - Exibe formulário para criação de novo evento |
-| 3 - Preenche os dados do evento (nome, local, data, horário, descrição)	| | 
-|                                                                         | 4 - Valida os campos preenchidos |
-| 5 - Confirma a postagem	                                                | | 
-|                                                                         | 6 - Registra o evento e exibe mensagem de sucesso | 
+| 1 - Acessa a área "Anunciar Evento”	       | | 
+|                                              | 2 - Exibe o formulário|
+| 3 - Preenche os dados obrigatórios do evento | | 
+|                                              | 4 - Valida os campos preenchidos |
+| 5 - Clica no botão "Anunciar"	               | | 
+|                                              | 6 - Registra o evento e exibe mensagem de sucesso | 
 
 ## Fluxo Alternativo I – Campos obrigatórios não preenchidos
 | Ações do ator | Ações do sistema |
@@ -32,8 +32,9 @@
 
 ## Diagrama de Interação (Sequência ou Comunicação)
 
-> Substituir pela imagem correspondente...
+<!-- > Substituir pela imagem correspondente... -->
+
 
 ## Diagrama de Classes de Projeto
 
-> Substituir pela imagem contendo as classes (modelo, visão e templates) que implementam o respectivo CDU...
+<!-- > Substituir pela imagem contendo as classes (modelo, visão e templates) que implementam o respectivo CDU... -->

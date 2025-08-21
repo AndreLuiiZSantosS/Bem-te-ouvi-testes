@@ -1,0 +1,134 @@
+{% load static %}
+
+  <section class="playlists-section" aria-label="Lista de Playlists">
+
+    <h2>Playlists</h2>
+    <ul class="playlist-list">
+      {% for playlist in playlists %}
+      <li class="playlist-item" data-playlist-id="{{ playlist.id }}">
+        <button type="button" class="playlist-toggle" aria-expanded="false" aria-controls="musicas-{{ playlist.id }}" aria-haspopup="true">
+          {% if playlist.capa %}
+          <img src="{{ playlist.capa.url }}" alt="Capa da playlist {{ playlist.nome }}" class="playlist-cover">
+          {% else %}
+          <img src="{% static 'bemteouvi/img/bird1.png' %}" alt="Capa padrão" class="playlist-cover">
+          {% endif %}
+          <div class="playlist-info">
+            <strong>{{ playlist.nome }}</strong>
+            <span class="playlist-creator">{{ playlist.criador.user.username }}</span>
+          </div>
+        </button>
+        <div class="playlist-actions">
+          <form action="{% url 'bemteouvi:excluir-playlist' playlist.id %}" method="POST"
+            class="playlist-delete-form" onsubmit="return confirm('Tem certeza que deseja excluir essa playlist?');" aria-label="Excluir playlist {{ playlist.nome }}">
+            {% csrf_token %}
+            <button type="submit" class="btn-delete"><i class="fas fa-trash"></i></button>
+          </form>
+  
+          <button type="button" onclick="abrirModalAdicionarMusicas({{ playlist.id }})" aria-haspopup="dialog" aria-controls="modalAdicionarMusicas"><i class="fas fa-plus"></i></button>
+        </div>
+
+        <div id="musicas-{{ playlist.id }}" class="playlist-musicas" hidden>
+          {% if playlist.musicas.exists %}
+          <ul class="musicas-list">
+            {% for musica in playlist.musicas.all %}
+            <li class="musica-item">
+              {% if musica.capa %}
+              <div class="alinharPlease">
+                <img src="{{ musica.capa.url }}" alt="Capa de {{ musica.titulo }}" class="musica-cover">
+                {% else %}
+                <img src="{% static 'bemteouvi/img/default-music.png' %}" alt="Capa padrão" class="musica-cover">
+                {% endif %}
+                <span>{{ musica.titulo }} - {{ musica.musico.user.username }}</span>
+                <button 
+                  class="play-button_playlist botao-tocar"
+                  data-audio="{{ musica.audio.url }}"
+                  data-titulo="{{ musica.titulo }}">
+                    <img src="{% static 'bemteouvi/img/play.png' %}" alt="Tocar">
+                </button>
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+          {% else %}
+          <p>Essa playlist não tem músicas.</p>
+          {% endif %}
+        </div>
+      </li>
+      {% empty %}
+      <li>Nenhuma playlist disponível.</li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <!-- Botão para abrir modal de criação -->
+  <button id="abrirModal" type="button" aria-haspopup="dialog" aria-controls="modalPlaylist" class="btn-abrir-modal">Criar nova playlist</button>
+
+  <!-- Modal de criação de playlist -->
+  <div id="modalPlaylist" class="modal" role="dialog" aria-modal="true" aria-labelledby="tituloModal" hidden>
+    <div class="modal-content" role="document">
+      <button id="fecharModal" class="fechar" aria-label="Fechar modal">&times;</button>
+      <h2 id="tituloModal">Nova Playlist</h2>
+      <form method="POST" action="{% url 'bemteouvi:criar-playlist' %}" enctype="multipart/form-data" class="form-criar-playlist" aria-label="Formulário para criação de playlist">
+        {% csrf_token %}
+        <label for="nome">Nome da Playlist:</label>
+        <input type="text" name="nome" id="nome" required autocomplete="off">
+
+        <label for="capa">Capa da playlist:</label>
+        <input type="file" name="capa" id="capa" accept="image/*">
+
+        <fieldset>
+          <legend>Selecione músicas para adicionar:</legend>
+          {% if musicas %}
+            {% for musica in musicas %}
+            <div class="checkbox-item">
+              <input type="checkbox" id="musica-criar-{{ musica.id }}" name="musicas" value="{{ musica.id }}">
+              <label for="musica-criar-{{ musica.id }}">
+                {% if musica.capa %}
+                <img src="{{ musica.capa.url }}" alt="Capa da música {{ musica.titulo }}" class="musica-cover">
+                {% else %}
+                <img src="{% static 'bemteouvi/img/default-music.png' %}" alt="Capa padrão" class="musica-cover">
+                {% endif %}
+                {{ musica.titulo }} - {{ musica.musico.user.username }}
+              </label>
+            </div>
+            {% endfor %}
+          {% else %}
+          <p>Nenhuma música disponível no site.</p>
+          {% endif %}
+        </fieldset>
+
+        <div class="modal-buttons">
+          <button type="submit" class="btn-salvar">Salvar</button>
+          <button type="button" id="cancelarModal" class="btn-cancelar">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal para adicionar músicas à playlist existente -->
+  <div id="modalAdicionarMusicas" class="modal" role="dialog" aria-modal="true" aria-labelledby="tituloAdicionarMusicas" hidden>
+    <div class="modal-content">
+      <button onclick="fecharModalAdicionarMusicas()" class="fechar-modal" aria-label="Fechar modal">&times;</button>
+      <h3 id="tituloAdicionarMusicas">Adicionar músicas à playlist</h3>
+      <form id="formAdicionarMusicas" method="post" action="{% url 'bemteouvi:adicionar-musicas-playlist' %}" aria-label="Formulário para adicionar músicas à playlist">
+        {% csrf_token %}
+        <div class="musicas-disponiveis">
+          {% for musica in musicas %}
+          <div class="checkbox-item">
+            <input type="checkbox" id="musica-adicionar-{{ musica.id }}" name="musicas" value="{{ musica.id }}">
+            <label for="musica-adicionar-{{ musica.id }}">
+              {% if musica.capa %}
+              <img src="{{ musica.capa.url }}" alt="Capa da música {{ musica.titulo }}" class="musica-cover">
+              {% else %}
+              <img src="{% static 'bemteouvi/img/default-music.png' %}" alt="Capa padrão" class="musica-cover">
+              {% endif %}
+              {{ musica.titulo }} - {{ musica.musico.user.username }}
+            </label>
+          </div>
+          {% endfor %}
+        </div>
+        <input type="hidden" name="playlist_id" id="playlistIdInput">
+        <button type="submit" class="btn-adicionar">Adicionar</button>
+      </form>
+    </div>
+  </div>

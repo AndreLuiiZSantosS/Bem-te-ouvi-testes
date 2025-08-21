@@ -11,21 +11,28 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import os  # Adicionar este import
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+AUTH_USER_MODEL = 'bemteouvi.User'
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://localhost:8000',
+    'https://127.0.0.1:8000',
+]
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
-CSRF_TRUSTED_ORIGINS=['https://localhost:8000']
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-tk&-i3kn-^kzy0^ka)bvbq^m_bd^4922y+w+u0v8tqt#_0mr!2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [] #oq estava dentro de Allowed_hosts: 'pdsweb.pythonanywhere.com'
+ALLOWED_HOSTS = ['localhost', '127.0.0.1'] #oq estava dentro de Allowed_hosts: 'pdsweb.pythonanywhere.com'
 
 
 # Application definition
@@ -55,7 +62,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],  # Adicione esta linha
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -63,6 +70,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'bemteouvi.context_processors.perfil_usuario',
             ],
         },
     },
@@ -115,7 +123,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
-
 STATIC_URL = 'static/'
 
 # Default primary key field type
@@ -125,7 +132,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # default static files settings for PythonAnywhere.
 # see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info
-MEDIA_ROOT = '/home/pdsweb/mysite/media'
+
 MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_ROOT = '/home/pdsweb/mysite/static'
-STATIC_URL = '/static/'
+
+# Configuração do usuário personalizado
+AUTH_USER_MODEL = 'auth.User'
+
+LOGIN_URL = '/login/'  # Ex: '/login/' ou 'accounts/login-custom/'
+LOGIN_REDIRECT_URL = '/'  # Redireciona para home após login
+LOGOUT_REDIRECT_URL = '/login/'  # Redireciona para login após logout

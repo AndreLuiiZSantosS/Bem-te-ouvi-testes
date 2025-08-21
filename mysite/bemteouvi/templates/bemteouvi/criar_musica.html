@@ -1,0 +1,12 @@
+{% extends 'bemteouvi/base.html' %}
+{% load static %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'bemteouvi/css/criar_musica.css'%}">
+  {{block.super}}
+  {% endblock %}
+
+{% block conteudo %}
+  {% include 'bemteouvi/criar_musica_content.html' %}
+{% endblock %}
+

@@ -1,0 +1,37 @@
+{% load static %}
+
+
+
+<form action="" method="POST" enctype="multipart/form-data" class="form-container-evento">
+  <!-- add efeito que tem no CIEE para input text -->
+  <!-- 
+  nome
+  descricao
+  data
+  local
+  foto_evento
+  -->
+  {% csrf_token %}
+  <fieldset>
+    <label for="nomeEvento">Nome do evento:</label>
+    <input type="text" name="nomeEvento" class="input-container-evento" placeholder="Insira o nome do evento">
+  </fieldset>
+  <fieldset>
+    <label for="descricaoEvento">Descrição do evento:</label>
+    <input type="text" name="descricaoEvento" class="input-container-evento" placeholder="Descreva o evento" >
+  </fieldset>
+  <fieldset>
+    <label for="data">Data do evento:</label>
+    <input type="date" name="dataEvento" class="input-container-evento">
+  </fieldset>
+  <fieldset>
+    <label for="local">Local do evento:</label>
+    <input type="text" name="localEvento" class="input-container-evento" placeholder="Informe o local que acontecerá o evento" >
+  </fieldset>
+  <fieldset>
+    <label for="fotoEvento">Imagem:</label>
+    <input type="file" name="fotoEvento" id="fotoEvento" accept=".png, .jpeg, .jpg, .svg" class="input-container-evento">
+    <div id="previewEvento"></div>
+  </fieldset>
+  <button type="submit" id="botaoPublicar">Anunciar Evento</button>
+</form>

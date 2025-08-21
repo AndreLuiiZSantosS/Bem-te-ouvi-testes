@@ -1,0 +1,47 @@
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'bemteouvi/css/index.css' %}">
+{% endblock %}
+
+<section>
+    <h2>Músicas</h2>
+    <div class="carousel">
+        {% for musica in musicas %}
+            <div class="card">
+                <img src="{% if musica.capa %}{{ musica.capa.url }}{% else %}#{% endif %}" alt="Capa da música" class="card-image">
+                <div class="card-content">
+                    <div class="text">
+                        <h3>{{ musica.titulo }}</h3>
+                        <p>{{musica.musico}}</p>
+                    </div>
+                    <button 
+                      class="play-button botao-tocar" 
+                      data-audio="{% if musica.audio %}{{ musica.audio.url }}{% else %}#{% endif %}"
+                      data-titulo="{{ musica.titulo }}">
+                      <img src="{% static 'bemteouvi/img/play.png' %}" alt="Tocar">
+                    </button>
+                </div>
+            </div>
+        {% endfor%}
+    </div>
+</section>
+
+
+
+<section>
+    <h2>Eventos</h2>
+    <div class="carousel">
+        {% for evento in eventos %}
+            <div class="card">
+                <img src="{% if evento.foto_evento %}{{ evento.foto_evento.url }}{% else %}#{% endif %}" alt="Capa do evento" class="card-image">
+                <div class="card-content">
+                    <div class="text">
+                        <h3>{{ evento.nome }}</h3>
+                        <p>{{ evento.descricao }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>

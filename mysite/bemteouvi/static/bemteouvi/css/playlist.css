@@ -1,3 +1,41 @@
+.playlist-list, .musicas-list{
+  list-style-type: none;
+}
+
+.playlist-item{
+  border-bottom: 1px solid #ddd;
+  padding: 1rem;
+}
+
+.play-button_playlist {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  align-self: center;
+}
+
+.play-button_playlist img {
+  width: 35px;
+  height: 35px;
+}
+
+.play-button_playlist:hover img {
+  transform: scale(1.1);
+}
+
+.alinharPlease {
+  gap: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.playlist-actions{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
 .liked-section {
   padding: 2rem;
 }
@@ -35,3 +73,84 @@
   font-size: 0.85rem;
   color: #ccc;
 }
+
+/* playlist.css */
+
+/* Reset básico para lista */
+.music-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.music-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
+}
+
+.music-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-right: 12px;
+}
+
+.music-info strong {
+  font-size: 1.1em;
+  display: block;
+  color: #222;
+}
+
+.music-info span {
+  font-size: 0.9em;
+  color: #555;
+}
+
+/* Botão para abrir modal */
+#abrirModal{
+  margin-top: 20px;
+  padding: 15px 20px;
+  font-size: 1em;
+  text-decoration: none;
+  background-color: #90BFD3;
+  color: white;
+  border-radius: 3px;
+  border-style: none;
+  margin-left: 10px;
+}
+
+
+
+
+.playlist-cover {
+  width: 150px;       /* Largura fixa */
+  height: 150px;      /* Altura fixa */
+  object-fit: cover;  /* Ajusta a imagem para cobrir o espaço, cortando o excesso */
+  border-radius: 8px; /* Opcional, para bordas arredondadas */
+  /* você pode adicionar margem, borda, sombra, etc */
+}
+
+.musica-cover {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+/* .modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */

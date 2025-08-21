@@ -1,6 +1,6 @@
 # Modelo de Domínio
 
-<img src="modelo_dominio.png"/>
+<img src="diagrama_classe_bto.png"/>
 
 
 Associações:

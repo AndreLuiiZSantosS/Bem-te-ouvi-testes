@@ -1,4 +1,4 @@
-# Título do Projeto
+# bem-te-ouvi
 
 <img src="logo.png" width="200" height="200" />
 
@@ -10,7 +10,6 @@
 2. João Dantas  - +55 84 99100-4254
 3. Lucas Tales  - +55 84 98158-3225
 4. Manoel Pinto - +55 84 99664-2855
-5. Wagner Alves - +55 84 92000-0597
 
 # Horário de Reuniões
 

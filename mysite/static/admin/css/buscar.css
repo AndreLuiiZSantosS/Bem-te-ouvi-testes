@@ -1,0 +1,56 @@
+.resultados-container {
+  padding: 2rem;
+}
+
+.termo {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.nenhum-resultado,
+.sugestao {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #444;
+  padding-bottom: 0.5rem;
+  color: #90BFD3;
+}
+
+.lista-resultados {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+.resultado-item {
+  display: flex;
+  align-items: center;
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  padding: 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  transition: background 0.3s ease;
+}
+
+.resultado-item:hover {
+  background-color: #334155;
+}
+
+.resultado-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 10%;
+  margin-right: 1rem;
+}

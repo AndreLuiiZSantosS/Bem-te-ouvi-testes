@@ -1,0 +1,36 @@
+{% load static %}
+
+<form action="{% url 'bemteouvi:criar-musica' %}" method="POST" enctype="multipart/form-data" class="form-container-musica">
+  {% csrf_token %}
+  
+  <div class="form-fields">
+    <fieldset>
+      <label for="nomeMusica">Nome da música</label>
+      <input type="text" name="nomeMusica" id="nomeMusica" placeholder="Insira o nome da sua música" class="input-container-musica">
+    </fieldset>
+    <fieldset>
+      <label for="generoMusica">Gênero musical</label>
+      <select name="generoMusica" id="generoMusica">
+        {% for chaveGeneroMusical, valorGeneroMusical in generos %}
+          <option value="{{chaveGeneroMusical}}">{{valorGeneroMusical}}</option>
+        {% endfor %}
+      </select>
+    </fieldset>
+  </div>
+
+  <div class="image-upload">
+    <fieldset>
+      <label for="imagemMusica">Capa:</label>
+      <input type="file" name="imagemMusica" id="imagemMusica" accept=".png, .jpeg, .svg" class="input-container-musica">
+      <div id="previewImagem"></div>
+    </fieldset>
+
+    <fieldset>
+      <label for="audioMusica">Áudio:</label>
+      <input type="file" name="audioMusica" id="audioMusica" accept=".mp3, .wav" class="input-container-musica">
+      <audio id="previewAudio" controls style="display: none;"></audio>
+    </fieldset>
+  </div>
+  
+  <button type="submit" id="botaoPublicar">Publicar música</button>
+</form>

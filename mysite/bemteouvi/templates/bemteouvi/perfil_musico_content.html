@@ -1,0 +1,108 @@
+{% load static %}
+
+<h1>{{ musico.user.username }}</h1>
+<!-- Modal escondido de edição -->
+{% if request.user == musico.user %}
+    <button id="btn-editar-perfil-musico">Editar Perfil</button>
+
+    <div class="modal-edicao" id="modal-edicao-musico" style="display: none;">
+    <div class="conteudo-modal">
+        <form id="formulario-edicao" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h3>Editar Perfil</h3>
+
+            <div class="grupo-formulario">
+                <label for="nome-usuario">Nome Artístico</label>
+                <input type="text" id="nome-usuario-musico" name="nome" placeholder="Seu nome">
+            </div>
+
+            <div class="grupo-formulario">
+                <label for="email-usuario">Email</label>
+                <input type="email" id="email-usuario-musico" name="email" placeholder="Seu email">
+            </div>
+
+            <div class="grupo-formulario">
+                <label for="chave-pix">Chave Pix</label>
+                <input type="text" id="chave-pix" name="chave_pix" placeholder="Sua chave pix">
+            </div>
+
+            <div class="grupo-formulario">
+                <label>Foto de Perfil</label>
+                <div class="grupo-upload">
+                    <input type="file" name="foto_perfil" id="input-foto-perfil" accept="image/*">
+                    <p class="remover-foto" id="remover-foto-perfil">Remover foto atual</p>
+                </div>
+            </div>
+
+            <div class="botoes-modal">
+                <button type="submit">Salvar</button>
+                <button type="button" class="botao-cancelar">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endif %}
+
+<!-- Conteúdo principal -->
+<div>
+    <!-- Estatísticas -->
+    <section class="secao-estatisticas">
+        <div class="grade-estatisticas">
+            <div class="item-estatistica">
+                <div class="valor-estatistica">{{ total_reproducoes|default:"0" }}</div>
+                <div class="rotulo-estatistica">Reproduções</div>
+            </div>
+            <div class="item-estatistica">
+                <div class="valor-estatistica">{{ minutos_ouvidos|default:"0" }}</div>
+                <div class="rotulo-estatistica">Minutos ouvidos</div>
+            </div>
+            <div class="item-estatistica">
+                <div class="valor-estatistica">R$ {{ dinheiro_arrecadado|floatformat:2 }}</div>
+                <div class="rotulo-estatistica">Dinheiro arrecadado</div>
+            </div>
+            <div class="item-estatistica">
+                <div class="valor-estatistica">
+                    {% if genero_favorito %}
+                    {{ genero_favorito }}
+                    {% else %}
+                    Nenhum
+                    {% endif %}
+                </div>
+                <div class="rotulo-estatistica">Gênero favorito</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Minhas Músicas -->
+    <section class="minhas-musicas">
+        <h2>Minhas músicas</h2>
+        <div class="lista-musicas">
+            {% for musica in musicas %}
+            <div class="item-musica">
+                <div class="info-musica">
+                    <figure>
+                        <img src="{% if musica.capa %}{{ musica.capa.url }}{% else %}#{% endif %}" alt="" class="capa_musica">
+                    </figure>
+                    <h3 class="titulo-musica">{{musica.titulo}}</h3>
+                    <p>{{musica.genero}}</p>
+                    <p>{{musica.data_lancamento}}</p>
+                    <!-- <button 
+                      class="play-button botao-tocar" 
+                      data-audio="{% if musica.audio %}{{ musica.audio.url }}{% else %}#{% endif %}"
+                      data-titulo="{{ musica.titulo }}">
+                      <img src="{% static 'bemteouvi/img/play.png' %}" alt="Tocar">
+                    </button> -->
+                </div>
+                <div class="acoes-musica">
+                    <button class="botao-acao botao-editar">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="botao-acao botao-excluir">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>

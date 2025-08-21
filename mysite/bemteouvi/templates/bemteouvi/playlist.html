@@ -1,42 +1,13 @@
-{% extends 'base.html' %}
+{% extends 'bemteouvi/base.html' %}
 {% load static %}
 
 {% block css %}
-  <link rel="stylesheet" href="{% static 'bemteouvi/css/playlist.css'%}">
-  {{block.super }} <!-- herda o css do base.html(contem estilização do header e o footer) -->
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'bemteouvi/css/playlist.css' %}">
 {% endblock %}
 
-{% block titulo %}
-  bem-te-ouvi - playlist
-{% endblock %}
 
 {% block conteudo %}
-  <main>
-    <section class="liked-section">
-      <h2>Músicas curtidas</h2>
-      <ul class="music-list">
-        <li class="music-item">
-          <img src="{% static 'bemteouvi/img/imgPlaylist1.png' %}" alt="Capa">
-          <div class="music-info">
-            <strong>Mais uma vez</strong>
-            <span>Sapo Africano</span>
-          </div>
-        </li>
-        <li class="music-item">
-          <img src="{% static 'bemteouvi/img/imgPlaylist1.png'%}" alt="Capa">
-          <div class="music-info">
-            <strong>Bad Romance - Cover</strong>
-            <span>Sapo Africano</span>
-          </div>
-        </li>
-        <li class="music-item">
-          <img src="{% static 'bemteouvi/img/imgPlaylist1.png'%}" alt="Capa">
-          <div class="music-info">
-            <strong>Too Sweet</strong>
-            <span>Sapo Africano</span>
-          </div>
-        </li>
-      </ul>
-    </section>
-  </main>
+  {% include 'bemteouvi/playlist_content.html' %}
 {% endblock %}
+

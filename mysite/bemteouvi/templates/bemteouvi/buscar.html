@@ -1,35 +1,91 @@
-<h1>Resultados para: "{{ termo }}"</h1>
+{% extends 'bemteouvi/base.html' %}
+{% load static %}
 
-{% if artistas %}
-  <h2>Artistas</h2>
-  <ul>
-    {% for artista in artistas %}
-      <li>{{ artista.nome }}</li>
-    {% endfor %}
-  </ul>
-{% endif %}
+{% block conteudo %}
+<div class="search-results-container">
+  <h1>Resultados para: "{{termo}}"</h1>
 
-{% if usuarios %}
-  <h2>Usuários</h2>
-  <ul>
-    {% for user in usuarios %}
-      <li>{{ user.nome }}</li>
-    {% endfor %}
-  </ul>
-{% endif %}
-
-{% if musicas %}
-  <h2>Músicas</h2>
-  <ul>
-    {% for musica in musicas %}
-      <li>{{ musica.titulo }} - {{ musica.artista.nome }}</li>
-    {% endfor %}
-  </ul>
-{% endif %}
-
-{% if not artistas and not usuarios and not musicas %}
-  <p>Nenhum resultado encontrado.</p>
-  {% if sugestao %}
-    <p>Você quis dizer: <strong>{{ sugestao }}</strong>?</p>
+  {% if musicos %}
+    <h2>Musicos</h2>
+    <div class="card-list">
+      {% for musico in musicos %}
+      <div>
+        <a href="{% url 'bemteouvi:perfil-musico' %}?id={{ musico.id }}" >
+          {% if musico.foto_perfil %}
+            <img src="{{ musico.foto_perfil.url }}" alt="{{ musico.user.username }}" class="capa_buscar">
+          {% else %}
+            <img src="{% static 'bemteouvi/img/default-profile.png' %}" alt="{{ musico.user.username }}" class="capa_buscar">
+          {% endif %}
+          <div class="card-content">
+            <span class="card-title">{{ musico.user.username }}</span>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  {% elif ouvintes %}
+    <h2>Ouvintes</h2>
+    <div class="card-list">
+      {% for ouvinte in ouvintes %}
+      <div>
+        <a href="{% url 'bemteouvi:perfil-ouvinte' %}?id={{ ouvinte.id }}">
+          {% if ouvinte.foto_perfil %}
+            <img src="{{ ouvinte.foto_perfil.url }}" alt="{{ ouvinte.user.username }}" class="capa_buscar">
+          {% else %}
+            <img src="{% static 'bemteouvi/img/default-profile.png' %}" alt="{{ ouvinte.user.username }}" class="capa_buscar">
+          {% endif %}
+          <div class="card-content">
+            <span class="card-title">{{ ouvinte.user.username }}</span>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
   {% endif %}
-{% endif %}
+
+  {% if musicas %}
+    <h2>Músicas</h2>
+    <div class="card-list">
+      {% for musica in musicas %}
+        <div class="card">
+            <img src="{% if musica.capa %}{{ musica.capa.url }}{% else %}#{% endif %}" alt="Capa da música" class="card-image">
+            <div class="card-content">
+                <div class="text">
+                    <h3>{{ musica.titulo }}</h3>
+                    <p>{{musica.musico}}</p>
+                </div>
+                <button 
+                  class="play-button botao-tocar" 
+                  data-audio="{% if musica.audio %}{{ musica.audio.url }}{% else %}#{% endif %}"
+                  data-titulo="{{ musica.titulo }}">
+                  <img src="{% static 'bemteouvi/img/play.png' %}" alt="Tocar">
+                </button>
+            </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if playlists %}
+    <h2>Playlists</h2>
+    <div class="card-list">
+      {% for playlist in playlists %}
+        <a href="{% url 'bemteouvi:playlist' %}?id={{ playlist.id }}" >
+          {% if playlist.capa %}
+            <img src="{{ playlist.capa.url }}" alt="{{ playlist.nome }}" class="card-image">
+          {% else %}
+            <img src="{% static 'bemteouvi/img/default-playlist.png' %}" alt="{{ playlist.nome }}" class="card-image">
+          {% endif %}
+          <div class="card-content">
+            <span class="card-title">{{ playlist.nome }}</span>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if not musicos and not ouvintes and not musicas and not playlists %}
+    <p>Nenhum resultado encontrado.</p>
+  {% endif %}
+</div>
+{% endblock %}
