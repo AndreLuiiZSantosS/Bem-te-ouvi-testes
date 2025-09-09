@@ -205,49 +205,33 @@ aside nav a {
   margin-right: 10px;
 }
 
-#player {
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 12vh;
-  z-index: 1002;
-  padding: 1rem;
-  border-top: 1px solid rgb(63, 65, 81);
-  position: fixed;
-  background-color: rgba(0, 0, 0, 0.5);
-  border: none;
-  box-shadow: none;
-}
-
-
-#player {
-  right: 0;
-  color: white;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
-  font-family: Arial, sans-serif;
-  z-index: 9999;
-}
-
 #player-ui {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
 }
 
+/* Título fica na esquerda */
 #titulo-musica {
-  flex-grow: 1;
   font-weight: bold;
   font-size: 16px;
+  max-width: 30%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-#botao-play, #botao-next {
+/* Controles centralizados */
+#player-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+#botao-prev, #botao-play, #botao-next {
   background-color: #444;
   border: none;
   color: white;
@@ -258,7 +242,7 @@ aside nav a {
   transition: background-color 0.3s;
 }
 
-#botao-play:hover, #botao-next:hover {
+#botao-prev:hover, #botao-play:hover, #botao-next:hover {
   background-color: #666;
 }
 
@@ -278,4 +262,22 @@ aside nav a {
 #botao_sair:hover {
   border-color: #65b7db;
   background-color: rgb(28, 29, 36);
+}
+
+/* Barra de progresso do player */
+#player-progress {
+  width: 100%;
+  height: 5px;
+  background: #333;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+
+#player-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: #90BFD3;
+  transition: width 0.1s linear;
 }

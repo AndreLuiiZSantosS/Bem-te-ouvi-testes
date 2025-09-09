@@ -158,14 +158,29 @@
   </main>
 
   <!-- Player fixo sempre visível -->
-  <div id="player">
-    <div id="player-ui">
-      <span id="titulo-musica" >Nenhuma música</span>
-      <button id="botao-play" >Play</button>
-      <button id="botao-next" >Próxima</button>
-      <audio id="audio-player" preload="metadata"></audio>
-    </div>
+<div id="player">
+  <!-- Barra de progresso -->
+  <div id="player-progress">
+    <div id="player-progress-bar"></div>
   </div>
+
+  <!-- UI do player -->
+  <div id="player-ui">
+    <!-- Título sempre alinhado à esquerda -->
+    <span id="titulo-musica">Nenhuma música</span>
+
+    <!-- Controles centralizados -->
+    <div id="player-controls">
+      <button id="botao-prev">Voltar</button>
+      <button id="botao-play">Play</button>
+      <button id="botao-next">Próxima</button>
+    </div>
+
+    <!-- Elemento <audio> escondido -->
+    <audio id="audio-player" preload="metadata"></audio>
+  </div>
+</div>
+
 
   <!-- Script global do player -->
   

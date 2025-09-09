@@ -2,6 +2,9 @@ const audioElement = document.getElementById('audio-player');
 const tituloMusica = document.getElementById('titulo-musica');
 const botaoPlay = document.getElementById('botao-play');
 const botaoNext = document.getElementById('botao-next');
+const botaoPrev = document.getElementById('botao-prev');
+const progressContainer = document.getElementById('player-progress');
+const progressBar = document.getElementById('player-progress-bar');
 
 let fila = [];
 let indexAtual = 0;
@@ -92,6 +95,27 @@ document.addEventListener('DOMContentLoaded', () => {
     indexAtual = (indexAtual + 1) % fila.length;
     tocarMusicaAtual();
   };
+
+  botaoPrev.onclick = () => {
+    if (fila.length === 0) return;
+    indexAtual = (indexAtual - 1 + fila.length) % fila.length;
+    tocarMusicaAtual();
+  };
+
+  // Atualizar a barra de progresso conforme a música toca
+  audioElement.addEventListener('timeupdate', () => {
+    if (!audioElement.duration) return;
+    const progresso = (audioElement.currentTime / audioElement.duration) * 100;
+    progressBar.style.width = `${progresso}%`;
+  });
+
+  // Permitir clicar na barra para mudar o tempo
+  progressContainer.addEventListener('click', (e) => {
+    const largura = progressContainer.clientWidth;
+    const cliqueX = e.offsetX;
+    const novoTempo = (cliqueX / largura) * audioElement.duration;
+    audioElement.currentTime = novoTempo;
+  });
 
   audioElement.addEventListener('ended', () => {
     if (fila.length === 0) return;
