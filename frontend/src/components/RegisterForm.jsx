@@ -6,7 +6,7 @@ const RegisterForm = () => {
         email: '',
         password: '',
         password2: '',
-        userType: '', // 'ouvinte' ou 'musico'
+        userType: '',
         cpf: '',
         pixKey: '',
         profilePic: null,
@@ -31,56 +31,55 @@ const RegisterForm = () => {
       };
 
   return (
-    <div className="w-full p-8 bg-black/50 rounded-2xl shadow-lg font-['Inter']">
-      <h1 className="text-center mb-6 text-3xl font-bold text-white">
+    <div className="w-full p-8 bg-black/50 rounded-2xl shadow-lg font-['Inter'] text-slate-100">
+      <h1 className="text-center mb-6 text-3xl font-bold text-[#90BFD3]">
         Cadastre-se
       </h1>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      <form onSubmit={handleSubmit} className="flex flex-col">
         
-        <div>
-          <label htmlFor="reg-username" className="block font-bold mb-1.5 text-white">Nome de usuário</label>
-          <input type="text" id="reg-username" name="username" value={formData.username} onChange={handleChange} required className="w-full p-2.5 border border-[#65b7db] rounded-lg bg-white/5 text-white outline-none focus:border-[#25a1f7] transition-colors" />
+        <div className="mb-4">
+          <label htmlFor="reg-username" className="block font-semibold mb-1 text-white">Nome de usuário</label>
+          <input type="text" id="reg-username" name="username" value={formData.username} onChange={handleChange} required className="box-border w-full px-4 py-2 border-2 border-[#90BFD3] rounded-full bg-transparent text-white outline-none focus:border-[#65b7db] focus:bg-white/5 transition-colors" />
         </div>
-        <div>
-          <label htmlFor="reg-email" className="block font-bold mb-1.5 text-white">Email</label>
-          <input type="email" id="reg-email" name="email" value={formData.email} onChange={handleChange} required className="w-full p-2.5 border border-[#65b7db] rounded-lg bg-white/5 text-white outline-none focus:border-[#25a1f7] transition-colors" />
+        <div className="mb-4">
+          <label htmlFor="reg-email" className="block font-semibold mb-1 text-white">Email</label>
+          <input type="email" id="reg-email" name="email" value={formData.email} onChange={handleChange} required className="box-border w-full px-4 py-2 border-2 border-[#90BFD3] rounded-full bg-transparent text-white outline-none focus:border-[#65b7db] focus:bg-white/5 transition-colors" />
         </div>
-        <div>
-          <label htmlFor="reg-password" className="block font-bold mb-1.5 text-white">Senha</label>
-          <input type="password" id="reg-password" name="password" value={formData.password} onChange={handleChange} required className="w-full p-2.5 border border-[#65b7db] rounded-lg bg-white/5 text-white outline-none focus:border-[#25a1f7] transition-colors" />
+        <div className="mb-4">
+          <label htmlFor="reg-password" className="block font-semibold mb-1 text-white">Senha</label>
+          <input type="password" id="reg-password" name="password" value={formData.password} onChange={handleChange} required className="box-border w-full px-4 py-2 border-2 border-[#90BFD3] rounded-full bg-transparent text-white outline-none focus:border-[#65b7db] focus:bg-white/5 transition-colors" />
         </div>
-        <div>
-          <label htmlFor="reg-password2" className="block font-bold mb-1.5 text-white">Confirme a Senha</label>
-          <input type="password" id="reg-password2" name="password2" value={formData.password2} onChange={handleChange} required className="w-full p-2.5 border border-[#65b7db] rounded-lg bg-white/5 text-white outline-none focus:border-[#25a1f7] transition-colors" />
+        <div className="mb-4">
+          <label htmlFor="reg-password2" className="block font-semibold mb-1 text-white">Confirme a Senha</label>
+          <input type="password" id="reg-password2" name="password2" value={formData.password2} onChange={handleChange} required className="box-border w-full px-4 py-2 border-2 border-[#90BFD3] rounded-full bg-transparent text-white outline-none focus:border-[#65b7db] focus:bg-white/5 transition-colors" />
         </div>
-        <div>
-          <label htmlFor="userType" className="block font-bold mb-1.5 text-white">Tipo de Usuário</label>
-          <select id="userType" name="userType" value={formData.userType} onChange={handleChange} required className="w-full p-2.5 border border-[#65b7db] rounded-lg bg-white/5 text-white outline-none focus:border-[#25a1f7] transition-colors">
+        <div className="mb-4">
+          <label htmlFor="userType" className="block font-semibold mb-1 text-white">Tipo de Usuário</label>
+          <select id="userType" name="userType" value={formData.userType} onChange={handleChange} required className="box-border w-full px-4 py-2 border-2 border-[#90BFD3] rounded-full bg-transparent text-white outline-none focus:border-[#65b7db] focus:bg-white/5 transition-colors">
             <option value="" disabled>Escolha uma opção</option>
             <option value="ouvinte">Ouvinte</option>
             <option value="musico">Músico</option>
           </select>
         </div>
 
-        {/* Campos que só aparecem se o usuário for "musico" */}
         {formData.userType === 'musico' && (
-          <div className="flex flex-col gap-4 animate-fade-in">
+          <div className="flex flex-col gap-4 mb-4">
             <div>
-              <label htmlFor="cpf" className="block font-bold mb-1.5 text-white">CPF</label>
-              <input type="text" id="cpf" name="cpf" value={formData.cpf} onChange={handleChange} placeholder="000.000.000-00" className="w-full p-2.5 border border-[#65b7db] rounded-lg bg-white/5 text-white outline-none focus:border-[#25a1f7] transition-colors" />
+              <label htmlFor="cpf" className="block font-semibold mb-1 text-white">CPF</label>
+              <input type="text" id="cpf" name="cpf" value={formData.cpf} onChange={handleChange} placeholder="000.000.000-00" className="box-border w-full px-4 py-2 border-2 border-[#90BFD3] rounded-full bg-transparent text-white outline-none focus:border-[#65b7db] focus:bg-white/5 transition-colors" />
             </div>
             <div>
-              <label htmlFor="pixKey" className="block font-bold mb-1.5 text-white">Chave Pix (opcional)</label>
-              <input type="text" id="pixKey" name="pixKey" value={formData.pixKey} onChange={handleChange} className="w-full p-2.5 border border-[#65b7db] rounded-lg bg-white/5 text-white outline-none focus:border-[#25a1f7] transition-colors" />
+              <label htmlFor="pixKey" className="block font-semibold mb-1 text-white">Chave Pix (opcional)</label>
+              <input type="text" id="pixKey" name="pixKey" value={formData.pixKey} onChange={handleChange} className="box-border w-full px-4 py-2 border-2 border-[#90BFD3] rounded-full bg-transparent text-white outline-none focus:border-[#65b7db] focus:bg-white/5 transition-colors" />
             </div>
           </div>
         )}
-        <div>
-            <label htmlFor="profilePic" className="block font-bold mb-1.5 text-white">Foto de Perfil (opcional)</label>
+        <div className="mb-4">
+            <label htmlFor="profilePic" className="block font-semibold mb-1 text-white">Foto de Perfil (opcional)</label>
             <input type="file" id="profilePic" name="profilePic" onChange={handleChange} accept="image/*" className="w-full text-white file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-[#90BFD3] file:text-[#101c25] hover:file:bg-[#65b7db]"/>
         </div>
 
-        <button type="submit" className="w-full py-3 mt-2 bg-[#90BFD3] text-[#101c25] font-bold rounded-lg text-base cursor-pointer hover:bg-[#65b7db] transition-colors">
+        <button type="submit" className="box-border w-full px-4 py-2 bg-[#90BFD3] text-[#101c25] font-bold rounded-full cursor-pointer text-lg hover:bg-[#65b7db] transition-colors border-2 border-[#90BFD3]">
           Cadastrar
         </button>
       </form>
