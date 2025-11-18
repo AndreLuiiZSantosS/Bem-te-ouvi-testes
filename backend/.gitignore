@@ -1,0 +1,11 @@
+# Arquivos de banco
+/db.sqlite3
+
+# Mídia
+/media/
+
+# Cache Python
+*.pyc
+__pycache__/
+
+

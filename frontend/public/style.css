@@ -84,29 +84,30 @@ textarea:focus {
 }
 
 button {
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   cursor: pointer;
-  border: none;
+  border: 2px solid #d43f5d;
   border-radius: var(--radius);
-  transition: 0.1s;
-  background: var(--color);
-  color: var(--color-dark);
+  
+  background: transparent;
+  color: #d43f5d;
+  
   padding: 0.8rem 1.6rem;
+  font-weight: bold;
+  
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
 button:hover,
 button:focus {
-  background: var(--color);
-  box-shadow: 0 0 0 3px var(--color-light), 0 0 0 4px var(--color);
+  background: #d43f5d;
+  color: #ffffff;
+  box-shadow: none; 
   outline: none;
-}
-
-button:active {
-  box-shadow: 0 0 0 3px var(--color), 0 0 0 4px var(--color);
-}
-
-button:disabled {
-  opacity: 0.5;
-  cursor: wait;
 }
 
 hr {
