@@ -7,6 +7,7 @@ interface SelectOption {
 
 interface SelectGenericoProps {
   id: string;
+  name?: string;
   value: string;
   onChange: (e: ChangeEvent<HTMLSelectElement>) => void;
   options: SelectOption[];
@@ -15,6 +16,7 @@ interface SelectGenericoProps {
 
 export default function SelectGenerico({
   id,
+  name,
   value,
   onChange,
   options,
@@ -24,7 +26,7 @@ export default function SelectGenerico({
     <div className="relative w-[500px]">
       <select
         id={id}
-        name="SelectGenerico"
+        name={name || "SelectGenerico"}
         value={value}
         onChange={onChange}
         className="

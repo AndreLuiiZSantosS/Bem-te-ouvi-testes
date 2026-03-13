@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useRef} from 'react';
 import type {ReactNode} from 'react';
+import type TypeMusica from '../types/typesModelos';
 
 interface PlayerContextData {
   isPlaying: boolean;
@@ -9,6 +10,9 @@ interface PlayerContextData {
   progress: number;
   audioRef: React.RefObject<HTMLAudioElement | null>;
   handleSeek: (value: number) => void;
+
+  musicaAtual: TypeMusica | null;
+  setMusicaAtual: (musica: TypeMusica) => void;
 }
 
 const PlayerContext = createContext({} as PlayerContextData);
@@ -19,6 +23,17 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
   const [duration, setDuration] = useState(0);
   const [progress, setProgress] = useState(0);
   const audioRef = useRef<HTMLAudioElement>(null);
+  const [musicaAtual, setMusicaAtualState] = useState<TypeMusica | null>(null);
+
+  const setMusicaAtual = (musica: TypeMusica) => {
+    if (!audioRef.current) return;
+
+    audioRef.current.src = musica.audio_file;;
+    audioRef.current.play();
+
+    setMusicaAtualState(musica);
+    setIsPlaying(true);
+  };
 
   const togglePlay = () => {
     if (audioRef.current) {
@@ -46,17 +61,20 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
         duration,
         progress,
         audioRef,
-        handleSeek
+        handleSeek,
+        musicaAtual,
+        setMusicaAtual
       }}
     >
       {children}
       <audio
         ref={audioRef}
-        src="/musica.mp3"
         onTimeUpdate={() => {
           if (audioRef.current) {
             setCurrentTime(audioRef.current.currentTime);
-            setProgress((audioRef.current.currentTime / audioRef.current.duration) * 100);
+            setProgress(
+              (audioRef.current.currentTime / audioRef.current.duration) * 100
+            );
           }
         }}
         onLoadedMetadata={() => {

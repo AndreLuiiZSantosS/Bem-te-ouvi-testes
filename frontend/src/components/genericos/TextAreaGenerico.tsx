@@ -2,19 +2,22 @@ import { type ChangeEvent } from "react";
 
 interface TextAreaGenericoProps {
   id: string;
-  value: string;
-  onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
+  name?: string;
+  value?: string;
+  onChange?: (e: ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
 export default function TextAreaGenerico({
   id,
-  value,
+  name,
+  value = "",
   onChange,
 }: TextAreaGenericoProps) {
   return (
     <div className="flex flex-col">
       <textarea
         id={id}
+        name={name}
         value={value}
         onChange={onChange}
         className="

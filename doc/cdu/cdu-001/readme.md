@@ -26,6 +26,9 @@
 | 3.1 - Clica no botão de play e há falha de conexão | | 
 |                                                    | 3.2 - Exibe mensagem: “Erro na reprodução. Verifique sua conexão e tente novamente” |
 
+## Diagrama de Atividade
+<img src="./cdu-001-ouvir-música.png" style="width:40vw; height:60pw">
+
 <!-- > Obs. as seções a seguir apenas serão utilizadas na segunda unidade do PDSWeb (segundo orientações do gerente do projeto). -->
 
 <!-- ## Diagrama de Interação (Sequência ou Comunicação) -->

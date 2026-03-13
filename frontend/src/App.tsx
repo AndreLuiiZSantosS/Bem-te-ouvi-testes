@@ -1,4 +1,6 @@
 import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./routes/Login";
 import Playlist from "./components/Playlist";
 import Musicos from "./components/Musicos";
 import Button from "./components/Button";
@@ -12,11 +14,14 @@ import Title from "./components/Title";
 // import TextAreaGenerico from './components/TextAreaGenerico'
 // import LabelGenerico from './components/LabelGenerico'
 
+import Auth from "./components/Auth";
+
 function App() {
   const handleBotaoVoltarClick = () => {
     // Lógica para o botão de voltar
   };
-  return(
+
+  const PaginaPrincipal = () => (
     <div>
       <Playlist />
       <Musicos />
@@ -26,6 +31,15 @@ function App() {
       <ImageUpload />
       <Title iconSrc="/icons/playlist-icon.svg" text="Minha Playlist" />
     </div>
+  );
+
+  return(
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Auth mode="login" />} />
+        <Route path="/paginaInicial" element={<PaginaPrincipal />} />
+      </Routes>
+    </BrowserRouter>
     // <MigalhaPao caminhos={[{ nome: 'Início', link: '/' }, { nome: 'Playlists', link: '/playlists' }, { nome: 'Minha Playlist' }]} />
     // <InputGenerico label="Nome do Álbum" placeholder="Digite o nome do álbum" />
     // <SelectGenerico label="Gênero Musical" options={['Rock', 'Pop', 'Jazz']} />

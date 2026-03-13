@@ -1,4 +1,3 @@
-import React from 'react';
 import SectionTitle from './Title'; 
 import icon from '../assets/Playlist-icon.svg'; 
 import capa3 from '../assets/Rectangle.jpg'; 

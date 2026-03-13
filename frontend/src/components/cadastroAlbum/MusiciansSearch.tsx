@@ -4,8 +4,8 @@ import MusicianListItem from "./MusicianListItem";
 // Interfaces
 interface Musician {
   id: number;
-  name: string;
-  avatar: string;
+  nome_artistico: string;
+  foto_perfil: string;
 }
 
 interface MusicianSearchProps {
@@ -135,8 +135,8 @@ const MusicianSearch: React.FC<MusicianSearchProps> = ({
                   <div key={musician.id}>
                     <MusicianListItem
                       as="button"
-                      avatarSrc={musician.avatar}
-                      name={musician.name}
+                      foto_perfil={musician.foto_perfil}
+                      nome_artistico={musician.nome_artistico}
                       onClick={
                         isAlreadyLinked
                           ? undefined

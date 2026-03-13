@@ -1,4 +1,3 @@
-import React from "react";
 import Title from './Title'; 
 import capa2 from '../assets/imagem1.jpg';
 import capa1 from '../assets/imagem2.jpg';

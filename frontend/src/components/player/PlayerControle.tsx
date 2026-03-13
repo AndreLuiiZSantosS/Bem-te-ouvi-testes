@@ -4,7 +4,7 @@ import PlayerRetroceder from "./PlayerControle/PlayerRetroceder";
 
 export default function PlayerControle(){
     return(
-        <div className="flex flex-rol gap-[61px] items-center">
+        <div className="flex flex-rol gap-16 items-center">
             <PlayerRetroceder/>
 
             <PlayerOuvirOUPausar/>

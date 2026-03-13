@@ -83,14 +83,17 @@ Músicos podem criar seu perfil, publicar seus álbuns e divulgar eventos, enqua
 
 ## 10. Glossário 
 
-|  Termo    |                          Explicação                                    |
-| --------- | ---------------------------------------------------------------        |
-| Visitante | Usuário não cadastrado                                                 |
-| Usuário   | Pessoa que acessa o sistema estando logada como ouvinte ou como músico |
-| Ouvinte   | Quem irá escutar as músicas e visitar o perfil do artista              |
-| Músico    | Artista independente que buscar divulgar suas músicas e eventos        |
-| Álbum     | Conjunto de músicas atreladas a um músico                              |
-| Playlist  | Conjunto de músicas organizadas por um ouvinte                         |
-| Leiloar   | Ato de colocar ou vender algo em um leilão                             |
-| Arrematar | Comprar um bem ao dar o maior lance em uma disputa em um leilão        |
+|  Termo        |                          Explicação                                                              |
+| ---------     | ---------------------------------------------------------------                                  |
+| Visitante     | Usuário não cadastrado                                                                           |
+| Usuário       | Pessoa que acessa o sistema estando logada como ouvinte ou como músico                           |
+| Ouvinte       | Quem irá escutar as músicas, álbuns, visitar perfis de músicos e dar lance em leilões            |
+| Músico        | Artista independente que buscar divulgar seus álbuns, suas músicas, seus eventos e leiloar itens |
+| Álbum         | Conjunto de músicas atreladas a um(ns) músico(s)                                                 |
+| Playlist      | Conjunto de músicas organizadas por um ouvinte ou músico                                         |
+| Leiloar       | Ato de colocar algo à venda em um leilão                                                         |
+| Item leiloado | Qualquer bem, produto ou mercadoria que foi colocado à venda em um leilão                        |
+| Lance         | Oferta de preço feita por um usuário logado                                                      |
+| Arrematar     | Comprar um bem ao dar o maior lance em uma disputa em um leilão                                  |
+| Anunciar      | Tornar algo conhecido publicamente                                                               |
 

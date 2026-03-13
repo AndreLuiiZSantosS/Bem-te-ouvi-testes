@@ -2,11 +2,12 @@ import { type ChangeEvent } from "react";
 
 interface InputDateTimeProps {
   id: string;
-  value: string;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  name?: string;
+  value?: string;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export default function InputDateTime({ id, value, onChange }: InputDateTimeProps) {
+export default function InputDateTime({ id, name, value = "", onChange }: InputDateTimeProps) {
   const handleIconClick = () => {
     const input = document.querySelector<HTMLInputElement>(`#${id}`);
     if (input) {
@@ -19,6 +20,7 @@ export default function InputDateTime({ id, value, onChange }: InputDateTimeProp
     <div className="relative w-[500px] flex items-center">
       <input
         id={id}
+        name={name}
         type="datetime-local"
         value={value ? value.slice(0, 16) : ""} 
         onChange={onChange}

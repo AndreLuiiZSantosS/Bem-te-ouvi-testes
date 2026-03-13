@@ -1,28 +1,27 @@
 import { Outlet } from 'react-router-dom';
 
 import SideBar from '../components/sidebar/SideBar';
-import NavBar from '../components/header/NavBar';
 import Player from '../components/player/Player';
 import SurgirEmCima from '../components/SurgirEmCima';
+import Header from '../components/header/Header';
 
 const BemteouviRoot = () => {
   return (
     <div>
       <SurgirEmCima/>
 
-
       {/* Header */}
-      <div className='fixed  w-full h-[100px] z-50
+      <div className='fixed  w-full h-[6.25rem] z-50
       bg-[#FAFAFA]'>
-        <NavBar />
+        <Header/>
       </div>
 
       {/* Sidebar + Content */}
       <div className='flex'>
-        <div className='fixed bg-[#FAFAFA] w-[240px] h-screen border-r border-[#D43F5D] z-50'>
+        <div className='fixed bg-[#FAFAFA] w-[15rem] h-screen border-r border-[#D43F5D] z-50'>
           <SideBar />
         </div>
-        <div className='ml-[290px] mt-[115px]'>
+        <div className='ml-[18.125rem] mt-28 mb-52'>
           <Outlet />
         </div>
       </div>
@@ -36,8 +35,3 @@ const BemteouviRoot = () => {
 };
 
 export default BemteouviRoot;
-
-
-        // <div className='mt-[100px] ml-[240px] pb-[160px]'>
-        //   <Outlet />
-        // </div>

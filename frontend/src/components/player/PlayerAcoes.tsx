@@ -4,7 +4,7 @@ import PlayerVolume from "./PlayerAcoes/PlayerVolume";
 
 export default function PlayerAcoes(){
     return(
-        <div className="flex flex-rol gap-[34px] items-center">
+        <div className="flex flex-rol gap-[2.13rem] items-center">
             <PlayerFavoritar/>
             <PlayerVolume/>
             <PlayerPontos/>

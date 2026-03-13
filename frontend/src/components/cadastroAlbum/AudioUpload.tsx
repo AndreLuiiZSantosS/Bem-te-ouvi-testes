@@ -2,10 +2,11 @@ import React, { useState, type ChangeEvent } from "react";
 
 interface AudioUploadProps {
   id: string;
+  name?: string;
   onAudioChange: (file: File | null) => void;
 }
 
-const AudioUpload: React.FC<AudioUploadProps> = ({ id, onAudioChange }) => {
+const AudioUpload: React.FC<AudioUploadProps> = ({ id, name = "audio_file", onAudioChange }) => {
   const [fileName, setFileName] = useState<string>("Nenhum arquivo selecionado");
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>): void => {
@@ -57,6 +58,7 @@ const AudioUpload: React.FC<AudioUploadProps> = ({ id, onAudioChange }) => {
         {/* Input escondido */}
         <input
           id={id}
+          name={name}
           type="file"
           accept="audio/*"
           onChange={handleFileChange}

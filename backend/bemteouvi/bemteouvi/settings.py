@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,13 +31,14 @@ ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
     ".app.github.dev",
-    "http://localhost:5173",
 ]
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173", 
 ]
+
+CORS_ALLOW_CREDENTIALS = True
 
 CSRF_TRUSTED_ORIGINS = [
     "https://*.app.github.dev",
@@ -57,7 +59,39 @@ INSTALLED_APPS = [
     'drf_yasg',
     'psycopg2',
     'api',
+    'django_filters',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',
+    ),
+        'DEFAULT_FILTER_BACKENDS': [
+            'django_filters.rest_framework.DjangoFilterBackend',
+        ],
+}
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ROTATE_REFRESH_TOKENS': False,
+    'BLACKLIST_AFTER_ROTATION': True,
+}
+
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header',
+            'description': 'Insira: Bearer <seu_token_access>',
+        }
+    },
+    'USE_SESSION_AUTH': False,
+}
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -94,18 +128,18 @@ WSGI_APPLICATION = "bemteouvi.wsgi.application"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default':{
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    },
-    # 'postgresql': {
+    # 'default': {
     #     'ENGINE': 'django.db.backends.postgresql',
-    #     'NAME': 'bemteouvi.bd',
+    #     'NAME': 'bemteouvidb',
     #     'USER': 'postgres',
     #     'PASSWORD': 'postgres',
     #     'HOST': 'localhost',
     #     'PORT': '5432',
     # }
+    'default':{
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    },
 }
 
 MEDIA_URL = '/media/'
